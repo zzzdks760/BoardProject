@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <BoardHeader />
+    <BoardSignUp />
+    <BoardLogin />
+    <BoardFooter />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BoardSignUp from "./components/BoardSignUp";
+import BoardLogin from "./components/BoardLogin";
+import BoardHeader from "./components/BoardHeader";
+import BoardFooter from "./components/BoardFooter";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BoardSignUp,
+    BoardLogin,
+    BoardFooter,
+    BoardHeader,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
