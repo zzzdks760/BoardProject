@@ -8,6 +8,7 @@
                 placeholder="Enter your name"
                 v-model="signup.name"
             />
+            <p>{{ this.errorName }}</p>
         </div>
         <div>
             E-Mail:
@@ -17,7 +18,7 @@
                 placeholder="Enter your E-mail"
                 v-model="signup.email"
             />
-            <p>{{ signup.errorEmail }}</p>
+            <p>{{ this.errorEmail }}</p>
         </div>
         <div>
             PassWord:
@@ -27,7 +28,7 @@
                 placeholder="Enter your PassWord"
                 v-model="signup.password"
             />
-            <p>{{ signup.errorPassword }}</p>
+            <p>{{ this.errorPassword }}</p>
         </div>
         <div>
             PassWord Check:
@@ -37,9 +38,9 @@
                 placeholder="Enter your PassWord"
                 v-model="signup.passwordConfirm"
             />
-            <p>{{ errorPasswordConfirm }}</p>
+            <p>{{ this.errorPasswordConfirm }}</p>
         </div>
-        <button class="signup_buttonn" @click="signup.submit" :disabled="!signup.canSignup">
+        <button class="signup_buttonn" @click="submit">
             <span class="signup">SignUp</span>
         </button>
     </div>
@@ -48,16 +49,51 @@
 <script>
 import { useSignupStore } from "@/store/store"
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
+    name: "BoardSignUp",
     setup() {
-        const signup = useSignupStore
+        const signup = useSignupStore.state
         return {
             signup,
         }
     },
     computed: {
-        ...mapGetters(["errorEmail", "errorPassword", "errorPasswordConfirm", "canSignup"])
+        ...mapGetters(["errorEmail", "errorPassword", "errorPasswordConfirm", "errorName", "storedmemberItems", "storedmemberItemsCount"])
+    },
+    methods: {
+        ...mapMutations({
+            sign: "signup"
+        }),
+        submit() {
+            const oldItems = this.storedmemberItems.email;
+            for (let i = 0; i < this.storedmemberItemsCount; i++) {
+                if(oldItems[i].itme === this.signup.email) {
+                    const text = "중복된 이메일입니다.";
+                    this.$emit("alertModal", text);
+                    return false;
+                }
+            }
+            if(this.errorEmail === "" && this.errorPassword === "" && this.errorPasswordConfirm === "" && this.errorName === "")
+            {
+                this.$store.commit("signup", this.signup);
+                console.log(this.signup)
+                this.clearInput();
+            }
+            else
+            {
+                const text = "회원가입에 실패하셨습니다.";
+                this.$emit("alertModal", text);
+                return false;
+            }
+        },
+        clearInput() {
+            this.signup.name = "";
+            this.signup.email = "";
+            this.signup.password = "";
+            this.signup.passwordConfirm = "";
+        }
     },
 }
 </script>

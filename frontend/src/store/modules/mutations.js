@@ -1,13 +1,12 @@
 import axios from 'axios';
-import router from '@/router'
 //import storage from "@/store/modules/storage";
 
-const signup = async (state) => {
+const signup = async (signup) => {
     var signupvalue = {
-        name: state.name,
-        email: state.email,
-        password: state.password,
-        passwordConfirm: state.passwordConfirm,
+        name: signup.name,
+        email: signup.email,
+        password: signup.password,
+        passwordConfirm: signup.passwordConfirm,
     }
     
     await axios
@@ -15,7 +14,6 @@ const signup = async (state) => {
         .then(res => {
             if(res.data == "ok"){
                 alert("회원가입이 완료되었습니다.");
-                router.push("/");
             }
             else {
                 alert("등록 실패");

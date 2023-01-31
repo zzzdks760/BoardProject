@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { store } from './store/store';
-
+import { useSignupStore } from './store/store'
 import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:8585/';
@@ -13,4 +12,4 @@ const app = createApp(App);
 
 app.config.globalProperties.axios = axios;
 
-app.use(store).mount('#app')
+app.use(useSignupStore).mount('#app')
