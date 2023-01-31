@@ -67,8 +67,8 @@ export default {
             for (let i = 0; i < this.storedmemberItemsCount; i++) {
                 if(oldItems[i] === this.signup.memberEmail) {
                     const text = "중복된 이메일입니다.";
-                    this.$emit("alertModal", text);
-                    return false;
+                    alert(text);
+                    return 0;
                 }
             }
             if(this.errorEmail === "" && this.errorPassword === "" && this.errorPasswordConfirm === "" && this.errorName === "")
@@ -80,8 +80,7 @@ export default {
             else
             {
                 const text = "회원가입에 실패하셨습니다.";
-                this.$emit("alertModal", text);
-                return false;
+                alert(text)
             }
         },
         clearInput() {

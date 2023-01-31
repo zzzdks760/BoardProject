@@ -28,7 +28,7 @@ const storage = {
                }
             });
 
-        useSignupStore.state.memberinformations = arr;
+        useSignupStore.state.memberitmes = arr;
     },
 }
 
