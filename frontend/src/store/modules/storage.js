@@ -2,12 +2,20 @@ import axios from 'axios';
 import {useSignupStore} from "@/store/store";
 
 const storage = {
-    async memberinformation() {
+    async memberinformation(orderState) {
+        var setState = true;
         /* 서버 통신 */
         const arr = [];
 
+        if(orderState == undefined || orderState === null){
+            setState == true;
+        }
+        else if(orderState != null || orderState != ""){
+            setState = orderState;
+        }
+
         await axios
-            .get('/member/')
+            .get('/member/' + setState)
             .then(res => {
                const jsonData = res.data;
 
