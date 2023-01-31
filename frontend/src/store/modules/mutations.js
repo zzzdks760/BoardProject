@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const signup = async (signup) => {
     var signupvalue = {
-        name: signup.name,
-        email: signup.email,
-        password: signup.password,
+        memberName: signup.memberName,
+        memberEmail: signup.memberEmail,
+        memberPassword: signup.memberPassword,
     }
     
     await axios

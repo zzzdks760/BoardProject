@@ -49,7 +49,6 @@
 <script>
 import { useSignupStore } from "@/store/store"
 import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
 
 export default {
     name: "BoardSignUp",
@@ -63,9 +62,6 @@ export default {
         ...mapGetters(["errorEmail", "errorPassword", "errorPasswordConfirm", "errorName", "storedmemberItems", "storedmemberItemsCount"])
     },
     methods: {
-        ...mapMutations({
-            sign: "signup"
-        }),
         submit() {
             const oldItems = this.storedmemberItems.memberEmail;
             for (let i = 0; i < this.storedmemberItemsCount; i++) {

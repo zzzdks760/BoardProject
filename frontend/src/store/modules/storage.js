@@ -15,7 +15,7 @@ const storage = {
         }
 
         await axios
-            .get('/member/')
+            .get('/member')
             .then(res => {
                const jsonData = res.data;
 
