@@ -6,7 +6,7 @@
                 type="text"
                 class="name_input"
                 placeholder="Enter your name"
-                v-model="signup.name"
+                v-model="signup.memberName"
             />
             <p>{{ this.errorName }}</p>
         </div>
@@ -16,7 +16,7 @@
                 type="email"
                 class="mail_input"
                 placeholder="Enter your E-mail"
-                v-model="signup.email"
+                v-model="signup.memberEmail"
             />
             <p>{{ this.errorEmail }}</p>
         </div>
@@ -26,7 +26,7 @@
                 type="password"
                 class="pw_input"
                 placeholder="Enter your PassWord"
-                v-model="signup.password"
+                v-model="signup.memberPassword"
             />
             <p>{{ this.errorPassword }}</p>
         </div>
@@ -36,7 +36,7 @@
                 type="password"
                 class="pwcheck_input"
                 placeholder="Enter your PassWord"
-                v-model="signup.passwordConfirm"
+                v-model="signup.memberPasswordConfirm"
             />
             <p>{{ this.errorPasswordConfirm }}</p>
         </div>
@@ -67,9 +67,9 @@ export default {
             sign: "signup"
         }),
         submit() {
-            const oldItems = this.storedmemberItems.email;
+            const oldItems = this.storedmemberItems.memberEmail;
             for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if(oldItems[i].itme === this.signup.email) {
+                if(oldItems[i].itme === this.signup.memberEmail) {
                     const text = "중복된 이메일입니다.";
                     this.$emit("alertModal", text);
                     return false;
@@ -89,10 +89,10 @@ export default {
             }
         },
         clearInput() {
-            this.signup.name = "";
-            this.signup.email = "";
-            this.signup.password = "";
-            this.signup.passwordConfirm = "";
+            this.signup.memberName = "";
+            this.signup.memberEmail = "";
+            this.signup.memberPassword = "";
+            this.signup.memberPasswordConfirm = "";
         }
     },
 }
