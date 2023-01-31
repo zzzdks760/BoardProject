@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin("http://localhost:8585, http://localhost:8080")
+
 public class MemberController {
 
     private final MemberService memberService;
