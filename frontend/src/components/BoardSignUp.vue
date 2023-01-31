@@ -65,7 +65,7 @@ export default {
         submit() {
             const oldItems = this.storedmemberItems.memberEmail;
             for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if(oldItems[i].itme === this.signup.memberEmail) {
+                if(oldItems[i] === this.signup.memberEmail) {
                     const text = "중복된 이메일입니다.";
                     this.$emit("alertModal", text);
                     return false;
