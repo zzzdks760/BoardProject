@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor // 생성자주입 방법설정
@@ -21,7 +20,7 @@ public class MemberService {
         // 2. repository의 save 메서드 호출
         MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
         memberRepository.save(memberEntity);
-        return save(memberDTO);
+        return "ok";
     }
 
 
@@ -49,14 +48,14 @@ public class MemberService {
 //        }
 //    }
 //
-//    public List<MemberDTO> findAll() {
-//        List<MemberEntity> memberEntityList = memberRepository.findAll();
-//        List<MemberDTO> memberDTOList = new ArrayList<>();
-//        for (MemberEntity memberEntity: memberEntityList) {
-//            memberDTOList.add(MemberDTO.toMemberDTO(memberEntity));
-//        }
-//        return memberDTOList;
-//    }
+    public List<MemberDTO> findAll() {
+        List<MemberEntity> memberEntityList = memberRepository.findAll();
+        List<MemberDTO> memberDTOList = new ArrayList<>();
+        for (MemberEntity memberEntity: memberEntityList) {
+            memberDTOList.add(MemberDTO.toMemberDTO(memberEntity));
+        }
+        return memberDTOList;
+    }
 //
 //    public MemberDTO findById(Long id) {
 //        Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);

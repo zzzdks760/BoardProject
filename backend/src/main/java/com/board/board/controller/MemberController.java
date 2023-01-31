@@ -4,19 +4,23 @@ import com.board.board.dto.MemberDTO;
 import com.board.board.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin("http://localhost:8585, http://localhost:8081")
+@CrossOrigin("http://localhost:8585, http://localhost:8080")
 public class MemberController {
 
     private final MemberService memberService;
+
+    // 회원 목록 (list라는 페이지에 값을 넘기는 방식 사용)
+    @GetMapping("/member/")
+    public List<MemberDTO> findAll(Model model) {
+        return memberService.findAll();
+    }
 
     //회원가입
     @PostMapping("/member/save") // 값을 받아올 페이지
