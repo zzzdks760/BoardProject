@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="3c3800f8-fcd5-4d77-b268-35ff269a7323" name="Changes" comment="" />
-=======
-    <list default="true" id="3c3800f8-fcd5-4d77-b268-35ff269a7323" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/board/board/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/board/board/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/board/board/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/board/board/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/BoardLogin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BoardLogin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/BoardSignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BoardSignUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/modules/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/modules/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/modules/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/modules/storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/store.js" afterDir="false" />
-    </list>
->>>>>>> 703ddb5302fe480886c60c04ece96da5e50c78a6
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,12 +20,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="board" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -68,19 +50,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/USER/Documents/GitHub/BoardProject",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "terminal"
-=======
-    "last_opened_file_path": "C:/Users/alsgh/Desktop/board 앱/BoardProject",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
->>>>>>> 703ddb5302fe480886c60c04ece96da5e50c78a6
   }
 }]]></component>
   <component name="RunManager">
