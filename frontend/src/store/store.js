@@ -9,10 +9,11 @@ app.use(Vuex);
 
 export const useSignupStore = new Vuex.Store({
     state: () =>({
-        name: "",
-        email: "",
-        password: "",
-        passwordConfirm: "",
+        id: "",
+        memberName: "",
+        memberEmail: "",
+        memberPassword: "",
+        memberPasswordConfirm: "",
         memberitmes: storage.memberinformation(),
         //boardItems: storage.fetch(),
     }),

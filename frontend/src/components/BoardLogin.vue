@@ -40,7 +40,7 @@ export default {
         login() {
             const memberitems = this.storedmemberItems;
             for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if (memberitems[i].item.email === this.loginemail && memberitems[i].item.password === this.loginpw) {
+                if (memberitems[i].item.memberEmail === this.loginemail && memberitems[i].item.memberPassword === this.loginpw) {
                     console.log("로그인 성공")
                 }
                 else {

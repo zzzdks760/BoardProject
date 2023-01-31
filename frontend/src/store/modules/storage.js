@@ -1,21 +1,13 @@
 import axios from 'axios';
-import {store} from "@/store/store";
+import {useSignupStore} from "@/store/store";
 
 const storage = {
-    async memberinformation(orderState) {
-        var setState = true;
+    async memberinformation() {
         /* 서버 통신 */
         const arr = [];
 
-        if(orderState == undefined || orderState === null){
-            setState == true;
-        }
-        else if(orderState != null || orderState != ""){
-            setState = orderState;
-        }
-
         await axios
-            .get('/member/' + setState)
+            .get('/member/')
             .then(res => {
                const jsonData = res.data;
 
@@ -28,7 +20,7 @@ const storage = {
                }
             });
 
-        store.state.memberinformations = arr;
+        useSignupStore.state.memberinformations = arr;
     },
 }
 

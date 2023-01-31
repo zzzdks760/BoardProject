@@ -6,7 +6,6 @@ const signup = async (signup) => {
         name: signup.name,
         email: signup.email,
         password: signup.password,
-        passwordConfirm: signup.passwordConfirm,
     }
     
     await axios
