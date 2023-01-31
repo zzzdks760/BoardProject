@@ -4,9 +4,11 @@ import com.board.board.dto.MemberDTO;
 import com.board.board.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,9 +20,8 @@ public class MemberController {
 
     //회원가입
     @PostMapping("/member/save") // 값을 받아올 페이지
-    public String save(@ModelAttribute MemberDTO memberDTO) {
-        memberService.save(memberDTO);
-        return "?";
+    public String save(@RequestBody @Valid MemberDTO memberDTO) {
+       return "ok";
     }
     // 로그인
     @PostMapping("/member/login")

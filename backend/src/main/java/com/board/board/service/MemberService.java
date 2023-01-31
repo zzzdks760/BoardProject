@@ -6,7 +6,6 @@ import com.board.board.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,11 +16,12 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public void save(MemberDTO memberDTO) {
+    public String save(MemberDTO memberDTO) {
         // 1. dto -> entity 변환
         // 2. repository의 save 메서드 호출
         MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
         memberRepository.save(memberEntity);
+        return "ok";
     }
 
 
