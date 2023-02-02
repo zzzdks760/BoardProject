@@ -6,7 +6,7 @@
                 type="email"
                 class="mail_input"
                 placeholder="Enter your E-mail"
-                v-model="loginstate.loginEmail"
+
             />
         </div>
         <div>
@@ -15,7 +15,6 @@
                 type="password"
                 class="pw_input"
                 placeholder="Enter your PassWord"
-                v-model="loginstate.loginPassword"
             />
         </div>
         <button class="login_buttonn">
@@ -30,7 +29,6 @@ import { useSignupStore } from "@/store/store"
 export default {
     setup() {
         const loginstate = useSignupStore.loginstate
-
         return {
             loginstate,
         }
