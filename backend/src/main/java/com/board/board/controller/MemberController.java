@@ -18,7 +18,7 @@ public class MemberController {
     private final MemberService memberService;
 
     // 회원 목록 (list라는 페이지에 값을 넘기는 방식 사용)
-    @GetMapping("/member/")
+    @GetMapping("/member/get")
     public List<MemberDTO> findAll(Model model) {
         return memberService.findAll();
     }

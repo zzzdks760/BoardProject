@@ -23,7 +23,11 @@ const errorPasswordConfirm = (state) => {
 };
 
 const storedmemberItems = (state) => {
-    return state.memberitmes;
+    return state.memberItmes
+}
+
+const storedmemberEmail = (state) => {
+    return state.memberEmails;
 };
 
 const storedmemberItemsCount = (state, getters) => {
@@ -39,4 +43,4 @@ function checkEmail(email) {
     }
 }
 
-export { errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount};
+export { errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount, storedmemberEmail};

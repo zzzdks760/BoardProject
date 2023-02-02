@@ -63,9 +63,9 @@ export default {
     },
     methods: {
         submit() {
-            const oldItems = this.storedmemberItems.memberEmail;
+            const oldItems = this.storedmemberItems;
             for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if(oldItems[i] === this.signup.memberEmail) {
+                if(oldItems[i].memberEmail === this.signup.memberEmail) {
                     const text = "중복된 이메일입니다.";
                     alert(text);
                     return 0;
