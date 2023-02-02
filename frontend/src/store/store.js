@@ -15,6 +15,7 @@ export const useSignupStore = new Vuex.Store({
         memberPasswordConfirm: "",
         memberItmes: storage.fetch(),
         memberEmails: storage.fetchemail(),
+        fetchpw: storage.fetchpw(),
         //boardItems: storage.fetch(),
     }),
     getters: getters,

@@ -25,6 +25,12 @@ const storage = {
             const memberEmails = localStorage.getItem("memberEmails");
             return memberEmails;
         }
+    },
+    fetchpw() {
+        if(localStorage.getItem("memberPasswords")) {
+            const memberPasswords = localStorage.getItem("memberPasswords");
+            return memberPasswords;
+        }
     }
 }
 
