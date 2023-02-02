@@ -31,27 +31,10 @@ public class MemberController {
         return memberService.save(memberDTO);
     }
     // 로그인
-//    @PostMapping("/member/login")
-//    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
-//        MemberDTO loginResult = memberService.login(memberDTO);
-//        if (loginResult != null) {
-//            // login 성공
-//            session.setAttribute("loginEmail", loginResult.getMemberEmail());
-//            return "?";
-//        } else {
-//          // login 실패
-//          return "?";
-//        }
-//    }
-//
-//    // 회원 목록 (list라는 페이지에 값을 넘기는 방식 사용)
-//    @GetMapping("/member/")
-//    public String findAll(Model model) {
-//        List<MemberDTO> memberDTOList = memberService.findAll();
-//        model.addAttribute("memberList", memberDTOList);
-//        return "list";
-//
-//    }
+    @PostMapping("/member/login")
+    public MemberDTO login(@RequestBody MemberDTO memberDTO) {
+        return memberService.login(memberDTO);
+    }
 //
 //    // 회원상세 조회 detail Html 리턴
 //    @GetMapping("/member/{id}")
