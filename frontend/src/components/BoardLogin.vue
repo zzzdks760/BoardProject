@@ -6,7 +6,7 @@
                 type="email"
                 class="mail_input"
                 placeholder="Enter your E-mail"
-                v-model="loginemail"
+                v-model="loginstate.loginEmail"
             />
         </div>
         <div>
@@ -15,7 +15,7 @@
                 type="password"
                 class="pw_input"
                 placeholder="Enter your PassWord"
-                v-model="loginpw"
+                v-model="loginstate.loginPassword"
             />
         </div>
         <button class="login_buttonn">
@@ -25,16 +25,19 @@
 </template>
 
 <script>
+import { useSignupStore } from "@/store/store"
+
 export default {
-    data() {
+    setup() {
+        const loginstate = useSignupStore.loginstate
+
         return {
-            loginemail: "",
-            loginpw: "",
+            loginstate,
         }
     },
     methods: {
         login() {
-            this.$store.commit("login", this.loginemail, this.loginpw);
+            this.$store.commit("login", this.loginstate);
         }
     },
 }

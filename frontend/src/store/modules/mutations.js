@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useSignupStore } from "@/store/store"
 //import storage from "@/store/modules/storage";
 
 const signup = async (signup) => {
@@ -21,10 +22,10 @@ const signup = async (signup) => {
 }
 
 
-const login = async (email, password) => {
+const login = async (loginstate) => {
     var loginvalue = {
-        memberEmail: email,
-        memberPassword: password,
+        memberEmail: loginstate.loginEmail,
+        memberPassword: loginstate.loginPassword,
     }
     
     await axios
@@ -32,6 +33,9 @@ const login = async (email, password) => {
         .then(res => {
             if(res.data == "ok"){
                 alert("로그인 완료");
+                useSignupStore.loginstate.loginstate = true
+                useSignupStore.loginstate.loginName = ""
+                useSignupStore.loginstate.loginEmail = loginvalue.memberEmail
             }
             else {
                 alert("로그인 실패");

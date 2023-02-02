@@ -18,6 +18,12 @@ export const useSignupStore = new Vuex.Store({
         fetchpw: storage.fetchpw(),
         //boardItems: storage.fetch(),
     }),
+    loginstate: () =>({
+        loginName: "",
+        loginEmail: "",
+        loginPassword: "",
+        loginstate: false,
+    }),
     getters: getters,
     mutations: mutations
 })
