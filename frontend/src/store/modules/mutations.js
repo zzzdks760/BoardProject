@@ -20,4 +20,22 @@ const signup = async (signup) => {
         })
 }
 
-export { signup, }
+
+const login = async (email, password) => {
+    var loginvalue = {
+        memberEmail: email,
+        memberPassword: password,
+    }
+    
+    await axios
+        .post('/member/login',JSON.stringify(loginvalue))
+        .then(res => {
+            if(res.data == "ok"){
+                alert("로그인 완료");
+            }
+            else {
+                alert("로그인 실패");
+            }
+        })
+}
+export { signup, login,}

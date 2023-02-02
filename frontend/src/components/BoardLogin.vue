@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
@@ -33,20 +32,9 @@ export default {
             loginpw: "",
         }
     },
-    computed: {
-        ...mapGetters(["storedmemberItems", "storedmemberItemsCount"])
-    },
     methods: {
         login() {
-            const memberitems = this.storedmemberItems;
-            for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if (memberitems[i].item.memberEmail === this.loginemail && memberitems[i].item.memberPassword === this.loginpw) {
-                    console.log("로그인 성공")
-                }
-                else {
-                    console.log("아이디와 비밀번호를 확인해주세요.")
-                }
-            }
+            this.$store.commit("login", this.loginemail, this.loginpw);
         }
     },
 }
