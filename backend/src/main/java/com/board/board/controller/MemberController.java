@@ -32,7 +32,7 @@ public class MemberController {
     }
     // 로그인
     @PostMapping("/member/login")
-    public MemberDTO login(@RequestBody MemberDTO memberDTO) {
+    public String login(@RequestBody MemberDTO memberDTO) {
         return memberService.login(memberDTO);
     }
 //
