@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -30,11 +31,14 @@ public class MemberController {
         System.out.println("memberDTO = " + memberDTO);
         return memberService.save(memberDTO);
     }
+
     // 로그인
     @PostMapping("/member/login")
     public String login(@RequestBody MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
         return memberService.login(memberDTO);
     }
+
 //
 //    // 회원상세 조회 detail Html 리턴
 //    @GetMapping("/member/{id}")
