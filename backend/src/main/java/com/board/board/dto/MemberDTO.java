@@ -19,7 +19,7 @@ public class MemberDTO {
         memberDTO.setId(memberEntity.getId());
         memberDTO.setMemberName(memberEntity.getMemberName());
         memberDTO.setMemberEmail(memberEntity.getMemberEmail());
-        memberDTO.setMemberPassword(memberDTO.getMemberPassword());
+        memberDTO.setMemberPassword(memberEntity.getMemberPassword());
         return memberDTO;
     }
 }
