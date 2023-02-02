@@ -19,10 +19,8 @@ public class MemberController {
 
     // 회원 목록 (list라는 페이지에 값을 넘기는 방식 사용)
     @GetMapping("/member/")
-    public String findAll(Model model) {
-        List<MemberDTO> memberDTOList = memberService.findAll();
-        model.addAttribute("memberList", memberDTOList);
-        return findAll(model);
+    public List<MemberDTO> findAll(Model model) {
+        return memberService.findAll();
     }
 
     //회원가입
