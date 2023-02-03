@@ -17,6 +17,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+      # ddl-auto: create로 되어있으면 재빌드시 DB정보 날아감
+      # ddl-auto: update로 바꿔야함
 
 logging:
   level:
