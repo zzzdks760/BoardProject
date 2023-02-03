@@ -24,6 +24,20 @@ public class MemberService {
         return "ok";
     }
 
+    public String emailCheck(String memberEmail) {
+        // Optional<>을 사용하면 null값으로인해 발생하는 예외처리가능
+        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberEmail);
+            if (byMemberEmail.isPresent()) {
+                // 조회결과가 있다 -> 사용할 수 없다.
+                return null;
+            }
+            else {
+                // 조회결과가 없다 -> 사용할 수 있다.
+                return "ok";
+            }
+        }
+
+
 
     public String login(MemberDTO memberDTO) {
         /*
@@ -57,6 +71,7 @@ public class MemberService {
         }
         return memberDTOList;
     }
+
 //
 //    public MemberDTO findById(Long id) {
 //        Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);

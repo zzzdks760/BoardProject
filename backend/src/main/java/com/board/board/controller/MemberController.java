@@ -32,6 +32,13 @@ public class MemberController {
         return memberService.save(memberDTO);
     }
 
+    @PostMapping("/member/email-check")
+    public String emailCheck(@RequestParam("memberEmail") String memberEmail) {
+        System.out.println("memberEmail = " + memberEmail);
+        String checkResult = memberService.emailCheck(memberEmail);
+        return checkResult;
+    }
+
     // 로그인
     @PostMapping("/member/login")
     public String login(@RequestBody MemberDTO memberDTO) {
