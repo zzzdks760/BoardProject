@@ -34,12 +34,6 @@ const storedmemberItemsCount = (state, getters) => {
     return getters.storedmemberItems.length;
 }
 
-const loginstate = (loginstate) => {
-    if (loginstate.loginstate){
-        return loginstate.memberName
-    }
-}
-
 function checkEmail(email) {
     try {
         let pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -49,4 +43,4 @@ function checkEmail(email) {
     }
 }
 
-export { errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount, storedmemberEmail, loginstate};
+export { errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount, storedmemberEmail};

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import Vuex from 'vuex'
 import storage from "./modules/storage";
 import * as getters from "./modules/getters";
+import * as logingetters from "./modules/logingetters";
 import * as mutations from "./modules/mutations";
 
 const app = createApp();
@@ -18,12 +19,17 @@ export const useSignupStore = new Vuex.Store({
         fetchpw: storage.fetchpw(),
         //boardItems: storage.fetch(),
     }),
-    loginstate: () =>({
-        loginName: "",
-        loginEmail: "",
-        loginPassword: "",
-        loginstate: false,
-    }),
     getters: getters,
+    mutations: mutations
+})
+
+export const LoginStore = new Vuex.Store({
+    LoginState: () =>({
+        Name: "",
+        Email: "",
+        Password: "",
+        state: false,
+    }),
+    logingetters: logingetters,
     mutations: mutations
 })
