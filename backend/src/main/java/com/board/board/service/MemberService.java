@@ -16,6 +16,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    // 회원가입
     public String save(MemberDTO memberDTO) {
         // 1. dto -> entity 변환
         // 2. repository의 save 메서드 호출
@@ -23,7 +24,7 @@ public class MemberService {
         memberRepository.save(memberEntity);
         return "ok";
     }
-
+    // 이메일 중복체크
     public String emailCheck(String memberEmail) {
         // Optional<>을 사용하면 null값으로인해 발생하는 예외처리가능
         Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberEmail);
@@ -38,7 +39,7 @@ public class MemberService {
         }
 
 
-
+    // 로그인
     public String login(MemberDTO memberDTO) {
         /*
             1. 회원이 입력한 이메일로 DB에서 조회를 함
@@ -63,6 +64,7 @@ public class MemberService {
         }
     }
 
+    // 전체 회원정보 조회
     public List<MemberDTO> findAll() {
         List<MemberEntity> memberEntityList = memberRepository.findAll();
         List<MemberDTO> memberDTOList = new ArrayList<>();

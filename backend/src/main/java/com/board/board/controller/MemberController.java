@@ -32,6 +32,7 @@ public class MemberController {
         return memberService.save(memberDTO);
     }
 
+    // 이메일 중복체크
     @PostMapping("/member/email-check")
     public String emailCheck(@RequestParam("memberEmail") String memberEmail) {
         System.out.println("memberEmail = " + memberEmail);
@@ -46,6 +47,15 @@ public class MemberController {
         return memberService.login(memberDTO);
     }
 
+        // 회원정보 수정, update Html 리턴
+//    @GetMapping("/member/update")
+//    public String updateForm(HttpSession session, Model model) {
+//        String myEmail = (String) session.getAttribute("loginEmail");
+//        MemberDTO memberDTO = memberService.updateForm(myEmail);
+//        model.addAttribute("updateMember", memberDTO);
+//        return "update";
+//    }
+
 //
 //    // 회원상세 조회 detail Html 리턴
 //    @GetMapping("/member/{id}")
@@ -55,14 +65,6 @@ public class MemberController {
 //        return  "detail";
 //    }
 //
-//    // 회원정보 수정, update Html 리턴
-//    @GetMapping("/member/update")
-//    public String updateForm(HttpSession session, Model model) {
-//        String myEmail = (String) session.getAttribute("loginEmail");
-//        MemberDTO memberDTO = memberService.updateForm(myEmail);
-//        model.addAttribute("updateMember", memberDTO);
-//        return "update";
-//    }
 //
 //    @PostMapping("/member/update")
 //    public String update(@ModelAttribute MemberDTO memberDTO) {
