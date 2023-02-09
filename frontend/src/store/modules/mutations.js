@@ -47,11 +47,9 @@ const write = async (writestate, loginstate) => {
         memberEmail: loginstate.Email,
         boardTitle: writestate.Title,
         boardContents: writestate.Contents,
-        boardCreatedTime: new Date(),
-        boardUpdatedTime: new Date(),
     }
     await axios
-        .post('/member/write', JSON.stringify(writevalue))
+        .post('/board/write' ,JSON.stringify(writevalue))
         .then(res => {
             if(res.data == "ok"){
                 alert("게시글이 등록되었습니다.")

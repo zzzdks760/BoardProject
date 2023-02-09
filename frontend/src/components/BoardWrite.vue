@@ -13,7 +13,7 @@
                         <textarea name="content" id="ucontent" cols="55" placeholder="내용" required v-model="this.writestate.Contents"></textarea>
                     </div> 
                     <div class="bt_se">
-                        <button type="submit" @click="write">글 작성</button>
+                        <button @click="write">글 작성</button>
                     </div>
                 </form>
             </div>
@@ -33,7 +33,9 @@ export default {
     },
     methods: {
         write() {
+            console.log(this.loginstate.Email)
             this.$store.commit("write", this.writestate, this.loginstate);
+
         }
     },
 }

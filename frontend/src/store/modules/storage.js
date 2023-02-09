@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {useSignupStore} from "@/store/store";
-import {BoardStore} from "@/store/store";
 
 const storage = {
     async fetch() {
@@ -33,23 +32,5 @@ const storage = {
             return memberPasswords;
         }
     },
-    async fetchboard() {
-        const arr = [];
-
-        await axios
-            .get('/member/board')
-            .then(res => {
-                const jsonData = res.data;
-                if(jsonData.length > 0){
-                    for(let i = 0; i < jsonData.length; i++){
-                        arr.push(
-                            jsonData[i]
-                        );
-                    }
-                }
-            });
-        BoardStore.Boardstate.Itmes = arr;
-    }
 }
-
 export default storage;

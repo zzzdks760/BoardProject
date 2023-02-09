@@ -43,4 +43,12 @@ function checkEmail(email) {
     }
 }
 
-export { errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount, storedmemberEmail};
+const boarditems = (state) => {
+    return state.Itmes
+}
+
+const boarditemscount = (state, getters) => {
+    return getters.boarditems.length
+}
+
+export { boarditems, boarditemscount, errorEmail, errorPassword, errorPasswordConfirm, errorName, storedmemberItems, storedmemberItemsCount, storedmemberEmail};

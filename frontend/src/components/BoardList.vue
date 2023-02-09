@@ -14,7 +14,7 @@
                       <div class="search-wrap">
                           <label for="search" class="blind">게시글 내용 검색</label>
                           <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-                          <button type="submit" class="btn btn-dark">검색</button>
+                          <button class="btn btn-dark" @click="read">검색</button>
                       </div>
                   </form>
               </div>
@@ -35,7 +35,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="(item, index) in items" :key="index">
+                  <tr v-for="(item, index) in this.boarditems" v-bind:key="item.item">
                       <td>{{ index }}</td>
                       <td>{{ item.Email}}</td>
                       <th>
@@ -53,13 +53,18 @@
 
 <script>
 import { mapGetters } from "vuex"
+import { mapState } from "vuex";
+
 export default {
     computed: {
-        ...mapGetters(["boarditems"])
+        ...mapGetters(["boarditems"]),
+        ...mapState({
+            boardlist: Boardstate => Boardstate
+        }) 
     },
     methods: {
       read() {
-
+        console.log(this.boardlist.memberItmes[0])
       }
     }
 }

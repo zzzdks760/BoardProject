@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import Vuex from 'vuex'
 import storage from "./modules/storage";
+import liststorage from './modules/Liststorage';
 import * as getters from "./modules/getters";
 import * as mutations from "./modules/mutations";
 
@@ -44,8 +45,9 @@ const WriteStore = new Vuex.Store({
 
 const BoardStore = new Vuex.Store({
     Boardstate: () => ({
-        Itmes: storage.fetchboard(),
+        Itmes: liststorage.fetchboard(),
     }),
+    getters: getters,
     mutations: mutations
 })
 
