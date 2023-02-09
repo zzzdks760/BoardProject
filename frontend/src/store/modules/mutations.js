@@ -1,5 +1,4 @@
 import axios from 'axios';
-//import { LoginStore } from "@/store/store"
 //import storage from "@/store/modules/storage";
 
 const signup = async (signup) => {
@@ -27,19 +26,40 @@ const login = async (loginstate) => {
         memberEmail: loginstate.Email,
         memberPassword: loginstate.Password,
     }
-    console.log(loginvalue)
     await axios
         .post('/member/login',JSON.stringify(loginvalue))
         .then(res => {
             if(res.data == "ok"){
                 alert("로그인 완료");
-                //LoginStore.LoginState.state = true
-                //LoginStore.LoginState.Name = ""
-                //LoginStore.LoginState.Email = loginvalue.memberEmail
+                loginstate.state = true
+                loginstate.Name = ""
+                loginstate.Email = loginvalue.memberEmail
+                console.log(loginstate.state, loginstate.Name, loginstate.Email)
             }
             else {
                 alert("로그인 실패");
             }
         })
 }
-export { signup, login,}
+
+const write = async (writestate, loginstate) => {
+    var writevalue = {
+        memberEmail: loginstate.Email,
+        boardTitle: writestate.Title,
+        boardContents: writestate.Contents,
+        boardCreatedTime: new Date(),
+        boardUpdatedTime: new Date(),
+    }
+    await axios
+        .post('/member/write', JSON.stringify(writevalue))
+        .then(res => {
+            if(res.data == "ok"){
+                alert("게시글이 등록되었습니다.")
+            }
+            else {
+                alert("등록 실패.")
+            }
+        })
+}
+
+export { signup, login, write,}

@@ -26,21 +26,19 @@
 
 <script>
 //import { LoginStore } from "@/store/store"
-import { mapGetters, mapState } from "vuex";
+import { mapState } from "vuex";
 
 export default {
     setup() {
 
     },
     computed: {
-        ...mapGetters(["loginstate"]),
         ...mapState({
             loginstate: LoginState => LoginState
         }) 
     },
     methods: {
         login() {
-            console.log(this.loginstate.Email, this.loginstate.Password)
             this.$store.commit("login", this.loginstate);
         }
     },
