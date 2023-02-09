@@ -3,6 +3,9 @@
     <BoardHeader />
     <BoardSignUp />
     <BoardLogin />
+    <BoardWrite />
+    <BoardList />
+    <BoardRead />
     <BoardFooter />
   </div>
 </template>
@@ -12,6 +15,9 @@ import BoardSignUp from "./components/BoardSignUp";
 import BoardLogin from "./components/BoardLogin";
 import BoardHeader from "./components/BoardHeader";
 import BoardFooter from "./components/BoardFooter";
+import BoardList from "./components/BoardList";
+import BoardWrite from "./components/BoardWrite";
+import BoardRead from "./components/BoardRead";
 
 export default {
   name: 'App',
@@ -20,6 +26,9 @@ export default {
     BoardLogin,
     BoardFooter,
     BoardHeader,
+    BoardList,
+    BoardWrite,
+    BoardRead,
   }
 }
 </script>
