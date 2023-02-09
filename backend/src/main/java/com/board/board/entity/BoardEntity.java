@@ -15,6 +15,9 @@ public class BoardEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
 
+    @Column(unique = true)
+    private String memberEmail;
+
     @Column
     private String boardTitle;
 
@@ -26,6 +29,7 @@ public class BoardEntity extends BaseEntity{
 
     public static BoardEntity toSaveEntity(BoardDTO boardDTO) {
         BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setMemberEmail(boardDTO.getMemberEmail());
         boardEntity.setBoardTitle(boardDTO.getBoardTitle());
         boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(0);
@@ -35,6 +39,7 @@ public class BoardEntity extends BaseEntity{
     public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setId(boardDTO.getId());
+        boardEntity.setMemberEmail(boardDTO.getMemberEmail());
         boardEntity.setBoardTitle(boardDTO.getBoardTitle());
         boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(boardDTO.getBoardHits());
