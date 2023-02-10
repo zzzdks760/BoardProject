@@ -35,14 +35,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="(item, index) in this.boarditems" v-bind:key="item.item">
-                      <td>{{ index }}</td>
-                      <td>{{ item.Email}}</td>
-                      <th>
-                        <a @click="read">{{ item.Title }}</a>
-                      </th>
-                      <td>2017.07.13</td>
-                      <td>12</td>
+                  <tr v-for="(list, index) in listup.Itmes" :key="index">
+                      <td>{{ index + 1 }}</td>
+                      <td>{{ list.memberEmail }}</td>
+                      <td>
+                        <a @click="read">{{ list.boardTitle }}</a>
+                      </td>
+                      <td>{{ list.boardCreatedTime }}</td>
+                      <td>{{ list.boardHits }}</td>
                   </tr>
                   </tbody>
               </table>
@@ -52,19 +52,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-import { mapState } from "vuex";
+import { BoardStore } from "@/store/store"
 
 export default {
-    computed: {
-        ...mapGetters(["boarditems"]),
-        ...mapState({
-            boardlist: Boardstate => Boardstate
-        }) 
+    setup() {
+        const listup = BoardStore.state
+        return {
+            listup,
+        }
     },
     methods: {
       read() {
-        console.log(this.boardlist.memberItmes[0])
       }
     }
 }

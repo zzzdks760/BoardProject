@@ -44,7 +44,7 @@ const WriteStore = new Vuex.Store({
 })
 
 const BoardStore = new Vuex.Store({
-    Boardstate: () => ({
+    state: () => ({
         Itmes: liststorage.fetchboard(),
     }),
     getters: getters,

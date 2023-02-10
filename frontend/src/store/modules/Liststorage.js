@@ -17,7 +17,7 @@ const liststorage = {
                         console.log(arr[i])
                     }
                 }
-            });
+            })
         BoardStore.state.Itmes = arr;
     }
 }
