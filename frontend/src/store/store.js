@@ -10,6 +10,7 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
+        pagererload: false,
         pagestate: 0,
         memberName: "",
         memberEmail: "",
@@ -29,7 +30,7 @@ const LoginStore = new Vuex.Store({
         Name: "",
         Email: "",
         Password: "",
-        state: false,
+        loginstate: false,
     }),
     mutations: mutations
 })

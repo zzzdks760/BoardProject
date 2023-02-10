@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <BoardHeader />
-    <BoardSignUp v-if="this.loginstate.pagestate == 2" />
+    <BoardList v-if="this.loginstate.pagestate == 0"/>
     <BoardLogin v-if="this.loginstate.pagestate == 1"/>
+    <BoardSignUp v-if="this.loginstate.pagestate == 2" />
     <BoardWrite v-if="this.loginstate.pagestate == 3" />
-    <BoardList v-if="this.loginstate.pagestate == 4"/>
     <BoardRead />
     <BoardFooter />
   </div>

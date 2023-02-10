@@ -51,6 +51,9 @@ export default {
                 return item.memberEmail === this.loginstate.Email
             })[0].memberName
             this.$store.commit("login", this.loginstate, this.loginname);
+            this.loginstate.pagestate = 0
+            this.loginstate.Email = ""
+            this.loginstate.Password = ""
         },
         signup() {
             this.loginstate.pagestate = 2

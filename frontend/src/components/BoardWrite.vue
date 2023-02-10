@@ -14,7 +14,6 @@
                 <div class="bt_se">
                     <button @click="write">글 작성</button>
                 </div>
-                <button @click="q">3123123</button>
             </div>
         </div>
     </div>
@@ -32,13 +31,12 @@ export default {
     },
     methods: {
         write() {
-            
             this.$store.commit("write", this.writestate, this.loginstate);
-
+            this.writestate.Title = ""
+            this.writestate.Contents = ""
+            this.loginstate.pagestate = 0
+            window.location.reload(true);
         },
-        q() {
-            console.log(this.writestate.Contents, this.loginstate.Email, this.writestate.Title)
-        }
     },
 }
 </script>

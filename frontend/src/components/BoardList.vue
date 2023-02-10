@@ -35,7 +35,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="(list, index) in listup.Itmes" :key="index">
+                  <tr class="listtable" v-for="(list, index) in listup.Itmes" :key="index">
                       <td>{{ index + 1 }}</td>
                       <td>{{ list.memberEmail }}</td>
                       <td>

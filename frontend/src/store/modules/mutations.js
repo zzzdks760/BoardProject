@@ -29,7 +29,7 @@ const emailcheck = async (signup) => {
         .post('/member/email-check', JSON.stringify(emailvalue))
         .then(res => {
             if(res.data == "ok") {
-                alert("사용 가능한 이메일입니다..");
+                alert("사용 가능한 이메일입니다.");
             }
             else {
                 alert("중복된 이메일입니다.");
