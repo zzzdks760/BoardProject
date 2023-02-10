@@ -25,9 +25,9 @@ public class MemberService {
         return "ok";
     }
     // 이메일 중복체크
-    public String emailCheck(String memberEmail) {
+    public String emailCheck(MemberDTO memberDTO) {
         // Optional<>을 사용하면 null값으로인해 발생하는 예외처리가능
-        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberEmail);
+        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberDTO.getMemberEmail());
             if (byMemberEmail.isPresent()) {
                 // 조회결과가 있다 -> 사용할 수 없다.
                 return null;

@@ -34,10 +34,9 @@ public class MemberController {
 
     // 이메일 중복체크
     @PostMapping("/member/email-check")
-    public String emailCheck(@RequestParam("memberEmail") String memberEmail) {
-        System.out.println("memberEmail = " + memberEmail);
-        String checkResult = memberService.emailCheck(memberEmail);
-        return checkResult;
+    public String emailCheck(@RequestBody MemberDTO memberDTO) {
+        System.out.println("memberEmail = " + memberDTO);
+        return memberService.emailCheck(memberDTO);
     }
 
     // 로그인
