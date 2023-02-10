@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <BoardHeader />
-    <BoardSignUp />
+    <BoardSignUp v-if="false" />
     <BoardLogin />
-    <BoardWrite />
-    <BoardList />
-    <BoardRead />
+    <BoardWrite  />
+    <BoardList v-if="false" />
+    <BoardRead v-if="false" />
     <BoardFooter />
   </div>
 </template>

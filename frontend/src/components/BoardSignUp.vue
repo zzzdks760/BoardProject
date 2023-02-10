@@ -63,24 +63,10 @@ export default {
     },
     methods: {
         submit() {
-            const oldItems = this.storedmemberItems;
-            for (let i = 0; i < this.storedmemberItemsCount; i++) {
-                if(oldItems[i].memberEmail === this.signup.memberEmail) {
-                    const text = "중복된 이메일입니다.";
-                    alert(text);
-                    return 0;
-                }
-            }
             if(this.errorEmail === "" && this.errorPassword === "" && this.errorPasswordConfirm === "" && this.errorName === "")
             {
                 this.$store.commit("signup", this.signup);
-                console.log(this.signup)
                 this.clearInput();
-            }
-            else
-            {
-                const text = "회원가입에 실패하셨습니다.";
-                alert(text)
             }
         },
         clearInput() {

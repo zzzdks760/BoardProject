@@ -24,7 +24,7 @@ const useSignupStore = new Vuex.Store({
 })
 
 const LoginStore = new Vuex.Store({
-    LoginState: () =>({
+    state: () =>({
         Name: "",
         Email: "",
         Password: "",
@@ -34,7 +34,7 @@ const LoginStore = new Vuex.Store({
 })
 
 const WriteStore = new Vuex.Store({
-    Writestate: () =>({
+    state: () =>({
         Email: "",
         Title: "",
         Contents: "",
@@ -50,5 +50,11 @@ const BoardStore = new Vuex.Store({
     getters: getters,
     mutations: mutations
 })
+//0 = 게시판, 1 = 로그인, 2 = 회원가입, 3 = 글작성
+const PageStore = new Vuex.Store({
+    state: () => ({
+        pagestate: 0,
+    })
+})
 
-export { useSignupStore, LoginStore, WriteStore, BoardStore}
+export { PageStore, useSignupStore, LoginStore, WriteStore, BoardStore}

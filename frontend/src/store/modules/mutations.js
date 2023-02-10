@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { PageStore } from "@/store/store"
 //import storage from "@/store/modules/storage";
 
 const signup = async (signup) => {
@@ -21,7 +22,7 @@ const signup = async (signup) => {
 }
 
 
-const login = async (loginstate) => {
+const login = async (loginstate, loginname) => {
     var loginvalue = {
         memberEmail: loginstate.Email,
         memberPassword: loginstate.Password,
@@ -32,7 +33,7 @@ const login = async (loginstate) => {
             if(res.data == "ok"){
                 alert("로그인 완료");
                 loginstate.state = true
-                loginstate.Name = ""
+                loginstate.Name = loginname
                 loginstate.Email = loginvalue.memberEmail
                 console.log(loginstate.state, loginstate.Name, loginstate.Email)
             }
@@ -48,6 +49,7 @@ const write = async (writestate, loginstate) => {
         boardTitle: writestate.Title,
         boardContents: writestate.Contents,
     }
+    console.log(writevalue.memberEmail, writevalue.boardTitle, writevalue.boardContents)
     await axios
         .post('/board/write' ,JSON.stringify(writevalue))
         .then(res => {
@@ -60,4 +62,8 @@ const write = async (writestate, loginstate) => {
         })
 }
 
-export { signup, login, write,}
+const pagechange = (pagestate) => {
+    PageStore.state.pagestate = pagestate
+}
+
+export { signup, login, write, pagechange,}

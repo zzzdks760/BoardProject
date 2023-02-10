@@ -21,6 +21,7 @@
         <button class="login_buttonn">
             <span class="login" @click="login">LogIn</span>
         </button>
+
     </div>
 </template>
 
@@ -30,7 +31,10 @@ import { mapState } from "vuex";
 
 export default {
     setup() {
-
+        const loginname = ""
+        return {
+            loginname,
+        }
     },
     computed: {
         ...mapState({
@@ -39,8 +43,11 @@ export default {
     },
     methods: {
         login() {
-            this.$store.commit("login", this.loginstate);
-        }
+            this.loginname = this.loginstate.memberItmes.filter(item => {
+                return item.memberEmail === this.loginstate.Email
+            })[0].memberName
+            this.$store.commit("login", this.loginstate, this.loginname);
+        },
     },
 }
 </script>
