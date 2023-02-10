@@ -35,21 +35,21 @@ public class BoardService {
     public String update(BoardDTO boardDTO) {
         BoardEntity boardEntity = BoardEntity.toUpdateEntity(boardDTO);
         boardRepository.save(boardEntity);
-        return findById(boardDTO.getId());
+        return "ok";
     }
 
     // 값이 잘 넘어가는지 확인필요, 안넘어가면 컨트롤러에서 Get으로주는거 만들어서 findById메서드(리턴값 boardDTO로 바꿔야함) 리턴
-    private String findById(Long id) {
-        Optional<BoardEntity> optionalBoardEntity = boardRepository.findById(id);
-        if (optionalBoardEntity.isPresent()) {
-            BoardEntity boardEntity = optionalBoardEntity.get();
-            BoardDTO boardDTO = BoardDTO.toBoardDTO(boardEntity);
-            return "ok";
-        }
-        else {
-            return null;
-        }
-    }
+//    private String findById(Long id) {
+//        Optional<BoardEntity> optionalBoardEntity = boardRepository.findById(id);
+//        if (optionalBoardEntity.isPresent()) {
+//            BoardEntity boardEntity = optionalBoardEntity.get();
+//            BoardDTO boardDTO = BoardDTO.toBoardDTO(boardEntity);
+//            return "ok";
+//        }
+//        else {
+//            return null;
+//        }
+//    }
 
     public String delete(Long id) {
         boardRepository.deleteById(id);
