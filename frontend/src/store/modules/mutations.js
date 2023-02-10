@@ -65,7 +65,6 @@ const write = async (writestate, loginstate) => {
         boardTitle: writestate.Title,
         boardContents: writestate.Contents,
     }
-    console.log(writevalue.memberEmail, writevalue.boardTitle, writevalue.boardContents)
     await axios
         .post('/board/write' ,JSON.stringify(writevalue))
         .then(res => {
@@ -78,4 +77,23 @@ const write = async (writestate, loginstate) => {
         })
 }
 
-export { signup, login, write, emailcheck,}
+const update = async (board) => {
+    var writingidvalue = {
+        id: board.id,
+        boardTitle: board.boardTitle,
+        boardContents: board.boardContents
+    }
+    console.log(writingidvalue)
+    await axios
+        .post('/board/update', JSON.stringify(writingidvalue))
+        .then(res => {
+            if(res.data == "ok"){
+                alert("수정 성공")
+            }
+            else {
+                alert("수정 실패")
+            }
+        })
+}
+
+export { signup, login, write, emailcheck, update,}

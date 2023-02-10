@@ -50,7 +50,6 @@ export default {
         },
         boardpage() {
             this.loginstate.pagestate = 0
-            window.location.reload(true);
         },
         listpage() {
             console.log(this.loginstate.Email)

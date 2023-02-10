@@ -10,6 +10,7 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
+        boardreadstate: 0,
         pagererload: false,
         pagestate: 0,
         memberName: "",
@@ -52,7 +53,7 @@ const BoardStore = new Vuex.Store({
     getters: getters,
     mutations: mutations
 })
-//0 = 게시판, 1 = 로그인, 2 = 회원가입, 3 = 글작성
+//0 = 게시판, 1 = 로그인, 2 = 회원가입, 3 = 글작성, 4 = 상세정보, 5 = 수정
 const PageStore = new Vuex.Store({
     state: () => ({
         pagestate: 0,

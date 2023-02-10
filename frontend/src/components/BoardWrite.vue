@@ -32,10 +32,10 @@ export default {
     methods: {
         write() {
             this.$store.commit("write", this.writestate, this.loginstate);
+            this.loginstate.pagestate = 0
             this.writestate.Title = ""
             this.writestate.Contents = ""
-            this.loginstate.pagestate = 0
-            window.location.reload(true);
+            //window.location.reload(true);
         },
     },
 }

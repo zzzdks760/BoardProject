@@ -1,18 +1,17 @@
 <template>
     <div>
-        <div>
-            <button @click="q">asa</button>
-        </div>
-        <div></div>
+        <input
+        
+        />
+        <button @click="q">asa</button>
     </div>
 </template>
 
 <script>
 import { BoardStore } from "@/store/store"
-
 export default {
     setup() {
-        const read = BoardStore.state.Itmes
+        const read = BoardStore.state
         return {
             read,
         }
