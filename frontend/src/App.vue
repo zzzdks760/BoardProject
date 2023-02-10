@@ -4,8 +4,8 @@
     <BoardSignUp v-if="false" />
     <BoardLogin />
     <BoardWrite  />
-    <BoardList v-if="false" />
-    <BoardRead v-if="false" />
+    <BoardList />
+    <BoardRead />
     <BoardFooter />
   </div>
 </template>
@@ -18,6 +18,7 @@ import BoardFooter from "./components/BoardFooter";
 import BoardList from "./components/BoardList";
 import BoardWrite from "./components/BoardWrite";
 import BoardRead from "./components/BoardRead";
+//import { PageStore } from "@/store/store"
 
 export default {
   name: 'App',
