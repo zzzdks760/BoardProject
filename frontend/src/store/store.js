@@ -10,6 +10,7 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
+        pagestate: 0,
         memberName: "",
         memberEmail: "",
         memberPassword: "",

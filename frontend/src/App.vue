@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <BoardHeader />
-    <BoardSignUp v-if="false" />
-    <BoardLogin />
-    <BoardWrite  />
-    <BoardList />
+    <BoardSignUp v-if="this.loginstate.pagestate == 2" />
+    <BoardLogin v-if="this.loginstate.pagestate == 1"/>
+    <BoardWrite v-if="this.loginstate.pagestate == 3" />
+    <BoardList v-if="this.loginstate.pagestate == 4"/>
     <BoardRead />
     <BoardFooter />
   </div>
@@ -18,10 +18,15 @@ import BoardFooter from "./components/BoardFooter";
 import BoardList from "./components/BoardList";
 import BoardWrite from "./components/BoardWrite";
 import BoardRead from "./components/BoardRead";
-//import { PageStore } from "@/store/store"
+import { mapState } from "vuex";
 
 export default {
   name: 'App',
+    computed: {
+        ...mapState({
+            loginstate: state => state,
+        }) 
+    },
   components: {
     BoardSignUp,
     BoardLogin,
@@ -30,6 +35,6 @@ export default {
     BoardList,
     BoardWrite,
     BoardRead,
-  }
+  },
 }
 </script>

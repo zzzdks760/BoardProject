@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { PageStore } from "@/store/store"
 //import storage from "@/store/modules/storage";
 
 const signup = async (signup) => {
@@ -17,6 +16,23 @@ const signup = async (signup) => {
             }
             else {
                 alert("등록 실패");
+            }
+        })
+}
+
+const emailcheck = async (signup) => {
+    var emailvalue = {
+        memberEmail: signup.memberEmail
+    }
+    
+    await axios
+        .post('/member/email-check', JSON.stringify(emailvalue))
+        .then(res => {
+            if(res.data == "ok") {
+                alert("사용 가능한 이메일입니다..");
+            }
+            else {
+                alert("중복된 이메일입니다.");
             }
         })
 }
@@ -62,8 +78,4 @@ const write = async (writestate, loginstate) => {
         })
 }
 
-const pagechange = (pagestate) => {
-    PageStore.state.pagestate = pagestate
-}
-
-export { signup, login, write, pagechange,}
+export { signup, login, write, emailcheck,}

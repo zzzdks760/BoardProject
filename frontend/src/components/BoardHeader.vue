@@ -23,7 +23,7 @@
 <script>
 import getDate from "../assets/common/getDate.js";
 import { mapState } from "vuex";
-import { PageStore } from "@/store/store"
+//import { PageStore } from "@/store/store"
 
 export default {
     data() {
@@ -41,9 +41,7 @@ export default {
     },
     methods: {
         pagestate() {
-            console.log(this.loginstate)
-            PageStore.state.pagestate = 1
-            console.log(PageStore.state)
+            this.loginstate.pagestate = 1
         }
     },
 }

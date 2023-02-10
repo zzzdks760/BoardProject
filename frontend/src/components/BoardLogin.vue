@@ -20,6 +20,10 @@
         </div>
         <button class="login_buttonn">
             <span class="login" @click="login">LogIn</span>
+            
+        </button>
+        <button class="login_buttonn">
+            <span class="login" @click="signup">SignUp</span>
         </button>
 
     </div>
@@ -48,6 +52,9 @@ export default {
             })[0].memberName
             this.$store.commit("login", this.loginstate, this.loginname);
         },
+        signup() {
+            this.loginstate.pagestate = 2
+        }
     },
 }
 </script>

@@ -17,7 +17,7 @@
                 class="mail_input"
                 placeholder="Enter your E-mail"
                 v-model="signup.memberEmail"
-            />
+            /> <button @click="check">중복확인</button>
             <p>{{ this.errorEmail }}</p>
         </div>
         <div>
@@ -68,12 +68,23 @@ export default {
                 this.$store.commit("signup", this.signup);
                 this.clearInput();
             }
+            else
+            {
+                const text = "회원가입에 실패하셨습니다.";
+                alert(text)
+            }
         },
         clearInput() {
             this.signup.memberName = "";
             this.signup.memberEmail = "";
             this.signup.memberPassword = "";
             this.signup.memberPasswordConfirm = "";
+        },
+        check() {
+            if(this.errorEmail === "")
+            {
+                this.$store.commit("emailcheck", this.signup)
+            }
         }
     },
 }
