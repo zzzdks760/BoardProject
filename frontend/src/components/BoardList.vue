@@ -36,15 +36,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr class="listtable" v-for="(list, index) in listup.Itmes" :key="index">
+                  <tr class="listtable" v-for="(list, index) in listup.Items" :key="index">
                       <td>{{ index + 1 }}</td>
                       <td>{{ list.memberEmail }}</td>
                       <td>
-                        <a @click="read">{{ list.boardTitle }}</a>
+                        <a @click="detail(`${list.id}`)">{{ list.boardTitle }}</a>
                       </td>
                       <td>{{ list.boardCreatedTime }}</td>
                       <td>{{ list.boardHits }}</td>
-                      <td><button @click="update">수정</button></td>
                   </tr>
                   </tbody>
               </table>
@@ -54,14 +53,16 @@
 </template>
 
 <script>
-import { BoardStore } from "@/store/store"
+import { useSignupStore } from "@/store/store"
 import { mapState } from "vuex";
 
 export default {
     setup() {
-        const listup = BoardStore.state
+        const listup = useSignupStore.state
+        const detailid = ""
         return {
             listup,
+            detailid,
         }
     },
     computed: {
@@ -70,13 +71,17 @@ export default {
         }) 
     },
     methods: {
-      read() {
-
-      },
-      update() {
-        console.log(this.listup.Itmes)
-        this.pagestate.pagestate = 5
-        this.$store.commit("update", this.listup.Itmes);
+      detail(id) {
+        this.listup.boardreadstate = id
+        this.detailid = this.listup.Items.filter(item => {
+          return item.id == this.listup.boardreadstate
+        })[0]
+        if(this.detailid.memberEmail === this.pagestate.Email) {
+          this.pagestate.detailstate = true
+        }
+        this.pagestate.detailItems = this.detailid
+        this.pagestate.pagestate = 4
+        this.pagestate.boardreadstate = id       
       },
     }
 }

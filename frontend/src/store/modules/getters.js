@@ -44,7 +44,7 @@ function checkEmail(email) {
 }
 
 const boarditems = (state) => {
-    return state.Itmes
+    return state.Items
 }
 
 const boarditemscount = (state, getters) => {

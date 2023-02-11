@@ -51,7 +51,6 @@ const login = async (loginstate, loginname) => {
                 loginstate.state = true
                 loginstate.Name = loginname
                 loginstate.Email = loginvalue.memberEmail
-                console.log(loginstate.state, loginstate.Name, loginstate.Email)
             }
             else {
                 alert("로그인 실패");
@@ -65,6 +64,7 @@ const write = async (writestate, loginstate) => {
         boardTitle: writestate.Title,
         boardContents: writestate.Contents,
     }
+    console.log(writevalue.memberEmail, writevalue.boardTitle, writevalue.boardContents)
     await axios
         .post('/board/write' ,JSON.stringify(writevalue))
         .then(res => {
@@ -77,11 +77,11 @@ const write = async (writestate, loginstate) => {
         })
 }
 
-const update = async (board) => {
+const updates = async (listup) => {
     var writingidvalue = {
-        id: board.id,
-        boardTitle: board.boardTitle,
-        boardContents: board.boardContents
+        id: listup.Items[0].id,
+        boardTitle: listup.Items[0].boardTitle,
+        boardContents: listup.Items[0].boardContents,
     }
     console.log(writingidvalue)
     await axios
@@ -96,4 +96,21 @@ const update = async (board) => {
         })
 }
 
-export { signup, login, write, emailcheck, update,}
+const listdelete = async (boardid) => {
+    var deletevalu = {
+        id: boardid.boardreadstate
+    }
+    console.log(deletevalu.id)
+    await axios
+        .post(`/board/delete/${deletevalu.id}`, JSON.stringify(deletevalu))
+        .then(res => {
+            if(res.data == "ok"){
+                alert("삭제 성공")
+            }
+            else {
+                alert("삭제 실패")
+            }
+        })
+}
+
+export { signup, login, write, emailcheck, updates, listdelete,}

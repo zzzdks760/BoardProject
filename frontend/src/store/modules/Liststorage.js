@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {BoardStore} from "@/store/store";
+import {useSignupStore} from "@/store/store";
 
 const liststorage = {
     async fetchboard() {
@@ -18,7 +18,7 @@ const liststorage = {
                     }
                 }
             })
-        BoardStore.state.Itmes = arr;
+            useSignupStore.state.Items = arr;
     }
 }
 

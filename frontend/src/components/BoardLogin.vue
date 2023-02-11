@@ -47,7 +47,6 @@ export default {
     },
     methods: {
         login() {
-            console.log(this.loginstate)
             this.loginname = this.loginstate.memberItmes.filter(item => {
                 return item.memberEmail === this.loginstate.Email
             })[0].memberName

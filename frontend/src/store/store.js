@@ -10,6 +10,9 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
+        detailstate: false,
+        detailItems: "",
+        Items: liststorage.fetchboard(),
         boardreadstate: 0,
         pagererload: false,
         pagestate: 0,
@@ -45,14 +48,14 @@ const WriteStore = new Vuex.Store({
     }),
     mutations: mutations
 })
-
+/*
 const BoardStore = new Vuex.Store({
     state: () => ({
         Itmes: liststorage.fetchboard(),
     }),
     getters: getters,
     mutations: mutations
-})
+})*/
 //0 = 게시판, 1 = 로그인, 2 = 회원가입, 3 = 글작성, 4 = 상세정보, 5 = 수정
 const PageStore = new Vuex.Store({
     state: () => ({
@@ -60,4 +63,4 @@ const PageStore = new Vuex.Store({
     })
 })
 
-export { PageStore, useSignupStore, LoginStore, WriteStore, BoardStore}
+export { PageStore, useSignupStore, LoginStore, WriteStore,}

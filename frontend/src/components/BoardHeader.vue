@@ -9,7 +9,7 @@
             <span class="menubutton" v-if="this.loginstate.Name === null || this.loginstate.Name === '' || this.loginstate.Name === undefined" @click="loginpage">로그인</span>
             <span class="menubutton" v-else @click="logout">로그아웃</span>
             <span class="menubutton" @click="boardpage">게시판</span>
-            <span class="menubutton" v-if="this.loginstate.Name !== null && this.loginstate.Name !== '' && this.loginstate.Name !== undefined" @click="listpage">글작성</span>
+            <span class="menubutton" v-if="this.loginstate.Name !== null && this.loginstate.Name !== '' && this.loginstate.Name !== undefined" @click="writepage">글작성</span>
             </h3>
         </div>
         <div class="time_date">
@@ -22,11 +22,12 @@
 <script>
 import getDate from "../assets/common/getDate.js";
 import { mapState } from "vuex";
-//import { PageStore } from "@/store/store"
+import { PageStore } from "@/store/store"
 
 export default {
     data() {
         return {
+            PageStore: PageStore.state,
             timestamp: "",
             loginname: "",
         }
@@ -42,18 +43,22 @@ export default {
     methods: {
         loginpage() {
             this.loginstate.pagestate = 1
+            this.PageStore.detailstate = false
         },
         logout() {
             this.loginstate.pagestate = 0
             this.loginstate.Name = ""
             alert("로그아웃 되었습니다.")
+            this.PageStore.detailstate = false
         },
         boardpage() {
             this.loginstate.pagestate = 0
+            this.PageStore.detailstate = false
         },
-        listpage() {
+        writepage() {
             console.log(this.loginstate.Email)
             this.loginstate.pagestate = 3
+            this.PageStore.detailstate = false
         }
     },
 }
