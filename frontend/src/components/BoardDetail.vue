@@ -26,7 +26,6 @@
             <button @click="update" v-if="this.detail.detailstate">수정</button>
             <button @click="listdelete"  v-if="this.detail.detailstate">삭제</button>
         </div>
-        <div><button @click="a">aa</button></div>
     </div>
 </template>
 
@@ -53,9 +52,6 @@ export default {
             this.detail.pagestate = 0
             window.location.reload(true);
         },
-        a() {
-            console.log(this.detail.detailstate)
-        }
     },
 }
 </script>
