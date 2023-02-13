@@ -43,22 +43,21 @@ export default {
     methods: {
         loginpage() {
             this.loginstate.pagestate = 1
-            this.PageStore.detailstate = false
+            this.loginstate.detailstate = false
         },
         logout() {
             this.loginstate.pagestate = 0
             this.loginstate.Name = ""
             alert("로그아웃 되었습니다.")
-            this.PageStore.detailstate = false
+            this.loginstate.detailstate = false
         },
         boardpage() {
             this.loginstate.pagestate = 0
-            this.PageStore.detailstate = false
+            this.loginstate.detailstate = false
         },
         writepage() {
-            console.log(this.loginstate.Email)
             this.loginstate.pagestate = 3
-            this.PageStore.detailstate = false
+            this.loginstate.detailstate = false
         }
     },
 }
