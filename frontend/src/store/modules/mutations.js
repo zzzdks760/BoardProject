@@ -101,7 +101,6 @@ const listdelete = async (boardid) => {
     var deletevalu = {
         id: boardid.boardreadstate
     }
-    console.log(deletevalu.id)
     await axios
         .post(`/board/delete/${deletevalu.id}`, JSON.stringify(deletevalu))
         .then(res => {
@@ -119,7 +118,7 @@ const boardhit = async (id) => {
         id: id.boardreadstate
     }
     await axios
-        .post('/board/hit', JSON.stringify(boardid))
+        .post(`/board/hit/${boardid.id}`, JSON.stringify(boardid))
 }
 
 export { signup, login, write, emailcheck, updates, listdelete, boardhit}
