@@ -15,7 +15,7 @@ public class BoardEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = false)
     private String memberEmail;
 
     @Column
