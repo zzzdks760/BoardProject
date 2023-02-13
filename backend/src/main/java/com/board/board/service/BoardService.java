@@ -55,4 +55,9 @@ public class BoardService {
         boardRepository.deleteById(id);
         return "ok";
     }
+
+    public String updateHits(Long id) {
+        boardRepository.updateHits(id);
+        return "ok";
+    }
 }

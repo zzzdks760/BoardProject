@@ -45,4 +45,9 @@ public class BoardController {
         return boardService.delete(id);
     }
 
+    @PostMapping("board/update")
+    public String updateHits(@PathVariable Long id) {
+        return boardService.updateHits(id);
+    }
+
 }
