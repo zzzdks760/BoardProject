@@ -72,7 +72,6 @@ export default {
     methods: {
       detail(id) {
         this.pagestate.detailstate = false
-        this.$store.commit("boardhit", this.pagestate)
         this.listup.boardreadstate = id
         this.detailid = this.listup.Items.filter(item => {
           return item.id == this.listup.boardreadstate
@@ -83,7 +82,8 @@ export default {
         }
         this.pagestate.detailItems = this.detailid
         this.pagestate.pagestate = 4
-        this.pagestate.boardreadstate = id    
+        this.pagestate.boardreadstate = id
+        this.$store.commit("boardhit", this.pagestate)
       },
     }
 }
