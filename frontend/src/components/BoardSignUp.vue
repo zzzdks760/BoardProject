@@ -49,6 +49,7 @@
 <script>
 import { useSignupStore } from "@/store/store"
 import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 
 export default {
     name: "BoardSignUp",
@@ -59,7 +60,12 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["errorEmail", "errorPassword", "errorPasswordConfirm", "errorName", "storedmemberItems", "storedmemberItemsCount"])
+        ...mapGetters([
+            "errorEmail", "errorPassword", "errorPasswordConfirm", "errorName", "storedmemberItems", "storedmemberItemsCount"
+            ]),
+        ...mapState({
+            signupstate: state => state
+        }) 
     },
     methods: {
         submit() {
@@ -67,6 +73,8 @@ export default {
             {
                 this.$store.commit("signup", this.signup);
                 this.clearInput();
+                this.signupstate.pagestate = 0
+                window.location.reload(true);
             }
             else
             {

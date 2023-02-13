@@ -35,7 +35,7 @@ export default {
             this.loginstate.pagestate = 0
             this.writestate.Title = ""
             this.writestate.Contents = ""
-            //window.location.reload(true);
+            window.location.reload(true);
         },
     },
 }

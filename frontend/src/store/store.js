@@ -10,7 +10,9 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
-        detailstate: false,
+        loginname: localStorage.getItem('Name'),
+        loginemail: localStorage.getItem('Email'),
+        detailstate: localStorage.getItem('detailstate'),
         detailItems: "",
         Items: liststorage.fetchboard(),
         boardreadstate: 0,
@@ -26,7 +28,7 @@ const useSignupStore = new Vuex.Store({
         //boardItems: storage.fetch(),
     }),
     getters: getters,
-    mutations: mutations
+    mutations: mutations,
 })
 
 const LoginStore = new Vuex.Store({
@@ -36,7 +38,7 @@ const LoginStore = new Vuex.Store({
         Password: "",
         loginstate: false,
     }),
-    mutations: mutations
+    mutations: mutations,
 })
 
 const WriteStore = new Vuex.Store({

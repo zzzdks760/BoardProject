@@ -38,8 +38,9 @@ const emailcheck = async (signup) => {
 }
 
 
-const login = async (loginstate, loginname) => {
+const login = async (loginstate) => {
     var loginvalue = {
+        memberName: loginstate.Name,
         memberEmail: loginstate.Email,
         memberPassword: loginstate.Password,
     }
@@ -48,23 +49,23 @@ const login = async (loginstate, loginname) => {
         .then(res => {
             if(res.data == "ok"){
                 alert("로그인 완료");
-                loginstate.state = true
-                loginstate.Name = loginname
-                loginstate.Email = loginvalue.memberEmail
+                localStorage.setItem('Name', loginvalue.memberName)
+                localStorage.setItem('Email', loginvalue.memberEmail)
+                localStorage.setItem('detailstate', false)
             }
             else {
                 alert("로그인 실패");
             }
+            console.log(localStorage.getItem('Name'),localStorage.getItem('Email'))
         })
 }
 
 const write = async (writestate, loginstate) => {
     var writevalue = {
-        memberEmail: loginstate.Email,
+        memberEmail: loginstate.loginemail,
         boardTitle: writestate.Title,
         boardContents: writestate.Contents,
     }
-    console.log(writevalue.memberEmail, writevalue.boardTitle, writevalue.boardContents)
     await axios
         .post('/board/write' ,JSON.stringify(writevalue))
         .then(res => {
@@ -113,4 +114,11 @@ const listdelete = async (boardid) => {
         })
 }
 
-export { signup, login, write, emailcheck, updates, listdelete,}
+const boardhit = async () => {
+    /*
+    await axios
+        .post('/board/hit')
+        */
+}
+
+export { signup, login, write, emailcheck, updates, listdelete, boardhit}

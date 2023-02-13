@@ -71,16 +71,19 @@ export default {
     },
     methods: {
       detail(id) {
+        this.pagestate.detailstate = false
+        this.$store.commit("boardhit")
         this.listup.boardreadstate = id
         this.detailid = this.listup.Items.filter(item => {
           return item.id == this.listup.boardreadstate
         })[0]
-        if(this.detailid.memberEmail === this.pagestate.Email) {
+        if(this.detailid.memberEmail == this.pagestate.loginemail) {
+          localStorage.setItem('detailstate', true)
           this.pagestate.detailstate = true
         }
         this.pagestate.detailItems = this.detailid
         this.pagestate.pagestate = 4
-        this.pagestate.boardreadstate = id       
+        this.pagestate.boardreadstate = id    
       },
     }
 }

@@ -50,10 +50,12 @@ export default {
             this.loginname = this.loginstate.memberItmes.filter(item => {
                 return item.memberEmail === this.loginstate.Email
             })[0].memberName
-            this.$store.commit("login", this.loginstate, this.loginname);
+            this.loginstate.Name = this.loginname
+            this.$store.commit("login", this.loginstate);
             this.loginstate.pagestate = 0
             this.loginstate.Email = ""
             this.loginstate.Password = ""
+            window.location.reload(true);
         },
         signup() {
             this.loginstate.pagestate = 2

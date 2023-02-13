@@ -26,7 +26,7 @@
             <button @click="update" v-if="this.detail.detailstate">수정</button>
             <button @click="listdelete"  v-if="this.detail.detailstate">삭제</button>
         </div>
-        <div></div>
+        <div><button @click="a">aa</button></div>
     </div>
 </template>
 
@@ -41,14 +41,20 @@ export default {
         }
     },
     methods: {
-      update() {
-        this.detail.pagestate = 5
-        this.detail.detailstate = false
-    },
+        update() {
+            this.detail.pagestate = 5
+            localStorage.setItem('detailstate', false)
+            this.detail.detailstate = false
+        },
         listdelete() {
+            localStorage.setItem('detailstate', false)
             this.detail.detailstate = false
             this.$store.commit("listdelete", this.detail);
-            this.detail.pagestate = 5
+            this.detail.pagestate = 0
+            window.location.reload(true);
+        },
+        a() {
+            console.log(this.detail.detailstate)
         }
     },
 }

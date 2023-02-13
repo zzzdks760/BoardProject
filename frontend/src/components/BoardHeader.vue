@@ -6,10 +6,10 @@
                 <span>logo</span>
             </h1>
             <h3 class="menu">
-            <span class="menubutton" v-if="this.loginstate.Name === null || this.loginstate.Name === '' || this.loginstate.Name === undefined" @click="loginpage">로그인</span>
+            <span class="menubutton" v-if="this.loginstate.loginname === null || this.loginstate.loginname === '' || this.loginstate.loginname === undefined" @click="loginpage">로그인</span>
             <span class="menubutton" v-else @click="logout">로그아웃</span>
             <span class="menubutton" @click="boardpage">게시판</span>
-            <span class="menubutton" v-if="this.loginstate.Name !== null && this.loginstate.Name !== '' && this.loginstate.Name !== undefined" @click="writepage">글작성</span>
+            <span class="menubutton" v-if="this.loginstate.loginname !== null && this.loginstate.loginname !== '' && this.loginstate.loginname !== undefined" @click="writepage">글작성</span>
             </h3>
         </div>
         <div class="time_date">
@@ -43,20 +43,27 @@ export default {
     methods: {
         loginpage() {
             this.loginstate.pagestate = 1
+            localStorage.setItem('detailstate', false)
             this.loginstate.detailstate = false
         },
         logout() {
             this.loginstate.pagestate = 0
             this.loginstate.Name = ""
             alert("로그아웃 되었습니다.")
+            localStorage.setItem('detailstate', false)
             this.loginstate.detailstate = false
+            localStorage.removeItem('Name')
+            localStorage.removeItem('Email')
+            window.location.reload(true);
         },
         boardpage() {
             this.loginstate.pagestate = 0
+            localStorage.setItem('detailstate', false)
             this.loginstate.detailstate = false
         },
         writepage() {
             this.loginstate.pagestate = 3
+            localStorage.setItem('detailstate', false)
             this.loginstate.detailstate = false
         }
     },
