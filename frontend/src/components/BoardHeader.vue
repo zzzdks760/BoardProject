@@ -60,6 +60,7 @@ export default {
             this.loginstate.pagestate = 0
             localStorage.setItem('detailstate', false)
             this.loginstate.detailstate = false
+            window.location.reload(true);
         },
         writepage() {
             this.loginstate.pagestate = 3
