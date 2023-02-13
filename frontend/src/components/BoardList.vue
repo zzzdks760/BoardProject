@@ -72,7 +72,7 @@ export default {
     methods: {
       detail(id) {
         this.pagestate.detailstate = false
-        this.$store.commit("boardhit")
+        this.$store.commit("boardhit", this.pagestate)
         this.listup.boardreadstate = id
         this.detailid = this.listup.Items.filter(item => {
           return item.id == this.listup.boardreadstate

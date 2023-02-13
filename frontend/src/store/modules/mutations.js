@@ -114,11 +114,12 @@ const listdelete = async (boardid) => {
         })
 }
 
-const boardhit = async () => {
-    /*
+const boardhit = async (id) => {
+    var boardid = {
+        id: id.boardreadstate
+    }
     await axios
-        .post('/board/hit')
-        */
+        .post('/board/hit', JSON.stringify(boardid))
 }
 
 export { signup, login, write, emailcheck, updates, listdelete, boardhit}
