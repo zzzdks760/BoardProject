@@ -65,7 +65,7 @@ public class BoardService {
         return "ok";
     }
 
-    public String paging(Pageable pageable) {
+    public Page<BoardDTO> paging(Pageable pageable) {
         int page = pageable.getPageNumber() - 1; // page 위치에 있는 값은 0부터 시작
         int pageLimit = 3; // 한 페이지에 보여줄 글 갯수
         // 한 페이지당 3개씩 글을 보여주고 정렬 기준은 id 기준으로 내림차순 정렬
@@ -83,6 +83,6 @@ public class BoardService {
 
         // 목록: id, email, title, createdTime, hits
         Page<BoardDTO> boardDTOS = boardEntities.map(board -> new BoardDTO(board.getId(), board.getMemberEmail(), board.getBoardTitle(), board.getBoardHits(), board.getCreatedTime()));
-        return "ok";
+        return boardDTOS;
     }
 }
