@@ -26,7 +26,20 @@
                 </form>
             </div>
             <div>
-                <div>댓글</div>
+                <div>
+                  <thead>
+                        <tr>
+                            <th scope="col" class="th-name">이름</th>
+                            <th scope="col" class="th-date">댓글</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                  <tr class="listtable" v-for="(list, index) in detail.commentsItems" :key="index">
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  </tbody>
+                </div>
             </div>
             <div>
                 <textarea rows="1" cols="55" placeholder="댓글을 입력해주세요" maxlength="100" required v-model="this.comments"> </textarea>

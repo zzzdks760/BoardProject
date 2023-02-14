@@ -19,7 +19,7 @@ const liststorage = {
             })
             useSignupStore.state.Items = arr;
     },
-/*
+
     async fetchcomments() {
         const arr = []
 
@@ -36,7 +36,7 @@ const liststorage = {
                 }
             })
             useSignupStore.state.commentsItems = arr;
-    },*/
+    },
 
     async fetchpaging() {
 
