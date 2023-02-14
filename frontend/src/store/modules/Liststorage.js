@@ -39,18 +39,14 @@ const liststorage = {
     },*/
 
     async fetchpaging() {
-        const arr = []
 
         await axios
             .get('/board/paging')
             .then(res => {
                 const jsonData = res.data
                 console.log(res)
-                        arr.push(
-                            jsonData
-                        );
+                useSignupStore.state.paging = jsonData
             })
-            useSignupStore.state.paging = arr;
     }
 }
 
