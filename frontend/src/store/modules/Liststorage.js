@@ -19,7 +19,7 @@ const liststorage = {
             })
             useSignupStore.state.Items = arr;
     },
-
+/*
     async fetchcomments() {
         const arr = []
 
@@ -36,6 +36,21 @@ const liststorage = {
                 }
             })
             useSignupStore.state.commentsItems = arr;
+    },*/
+
+    async fetchpaging() {
+        const arr = []
+
+        await axios
+            .get('/board/paging')
+            .then(res => {
+                const jsonData = res.data
+                console.log(res)
+                        arr.push(
+                            jsonData
+                        );
+            })
+            useSignupStore.state.paging = arr;
     }
 }
 

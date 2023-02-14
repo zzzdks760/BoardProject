@@ -10,7 +10,8 @@ app.use(Vuex);
 
 const useSignupStore = new Vuex.Store({
     state: () =>({
-        commentsItems: liststorage.fetchcomments(),
+        paging: liststorage.fetchpaging(),
+        //commentsItems: liststorage.fetchcomments(),
         comments: "",
         listsearch: "",
         loginname: localStorage.getItem('Name'),

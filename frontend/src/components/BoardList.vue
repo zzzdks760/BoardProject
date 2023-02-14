@@ -46,6 +46,7 @@
               </table>
           </div>
       </div>
+      <button @click="q">aaa</button>
     </div>
 </template>
 
@@ -89,6 +90,9 @@ export default {
         this.pagestate.listsearch = this.search
         this.$store.commit("listsearch", this.pagestate)
         
+      },
+      q() {
+        console.log(this.pagestate.paging)
       }
     }
 }
