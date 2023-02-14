@@ -125,7 +125,7 @@ const boardhit = async (id) => {
 
 const listsearch = async (word) => {
     var wordvalue = {
-        search: word.listsearch
+        Search: word.listsearch
     }
     console.log(wordvalue.search)
     await axios
@@ -143,7 +143,8 @@ const listsearch = async (word) => {
 
 const comment = async (commentscopy) => {
     var commentsvalue = {
-        comments: commentscopy.comments
+        Comments: commentscopy.comments,
+        Email: localStorage.getItem('Email')
     }
     await axios
         .post('/board/comments', JSON.stringify(commentsvalue))
