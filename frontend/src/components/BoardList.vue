@@ -10,13 +10,11 @@
       <div id="board-search">
           <div class="container">
               <div class="search-window">
-                  <form action="">
-                      <div class="search-wrap">
-                          <label for="search" class="blind">게시글 내용 검색</label>
-                          <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-                          <button class="btn btn-dark" @click="read">검색</button>
-                      </div>
-                  </form>
+                    <div class="search-wrap">
+                        <label for="search" class="blind">게시글 내용 검색</label>
+                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." v-model="search">
+                        <button class="btn btn-dark" @click="searchbutton">검색</button>
+                    </div>
               </div>
           </div>
       </div>
@@ -59,9 +57,11 @@ export default {
     setup() {
         const listup = useSignupStore.state
         const detailid = ""
+        const search = ""
         return {
             listup,
             detailid,
+            search,
         }
     },
     computed: {
@@ -85,6 +85,11 @@ export default {
         this.pagestate.boardreadstate = id
         this.$store.commit("boardhit", this.pagestate)
       },
+      searchbutton() {
+        this.pagestate.listsearch = this.search
+        this.$store.commit("listsearch", this.pagestate)
+        
+      }
     }
 }
 </script>

@@ -1,50 +1,78 @@
 <template>
-    <div>
-        <div>
-            Name:
+  <div class="col-md-12">
+    <div class="card card-container">
+      <img
+        id="profile-img"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+      />
+      <form name="form" @submit.prevent="handleRegister">
+        <div v-if="!successful">
+          <div class="form-group">
+            <label class="form-text" for="username">Username</label>
             <input
-                type="text"
-                class="name_input"
-                placeholder="Enter your name"
-                v-model="signup.memberName"
+              type="text"
+              class="form-control"
+              name="username"
+              v-model="signup.memberName"
+              v-validate="'required|min:3|max:20'"
             />
-            <p>{{ this.errorName }}</p>
-        </div>
-        <div>
-            E-Mail:
+            <div
+              class="alert-danger"
+              
+            >{{ this.errorName }}</div>
+          </div>
+          <div class="form-group">
+            <label class="form-text" for="email">Email</label>
             <input
-                type="email"
-                class="mail_input"
-                placeholder="Enter your E-mail"
-                v-model="signup.memberEmail"
-            /> <button @click="check">중복확인</button>
-            <p>{{ this.errorEmail }}</p>
-        </div>
-        <div>
-            PassWord:
-            <input
-                type="password"
-                class="pw_input"
-                placeholder="Enter your PassWord"
-                v-model="signup.memberPassword"
+              type="email"
+              class="form-control"
+              name="email"
+              v-model="signup.memberEmail"
+              v-validate="'required|email|max:50'"
             />
-            <p>{{ this.errorPassword }}</p>
-        </div>
-        <div>
-            PassWord Check:
+            <div
+              class="alert-danger"
+              
+            >{{ this.errorEmail }}</div>
+          </div>
+          <div class="form-group">
+            <label class="form-text" for="password">Password</label>
             <input
-                type="password"
-                class="pwcheck_input"
-                placeholder="Enter your PassWord"
-                v-model="signup.memberPasswordConfirm"
+              type="password"
+              class="form-control"
+              name="password"
+              v-model="signup.memberPassword"
+              v-validate="'required|min:6|max:40'"
             />
-            <p>{{ this.errorPasswordConfirm }}</p>
+            <div
+              class="alert-danger"
+              
+            >{{ this.errorPassword }}</div>
+          </div>
+          <div class="form-group">
+            <label class="form-text" for="passwordConfirm">PasswordConfirm</label>
+            <input
+              type="password"
+              class="form-control"
+              name="passwordConfirm"
+              v-model="signup.memberPasswordConfirm"
+              v-validate="'required|min:6|max:40'"
+            />
+            <div
+              class="alert-danger"
+              
+            >{{ this.errorPasswordConfirm }}</div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Sign Up</button>
+          </div>
         </div>
-        <button class="signup_buttonn" @click="submit">
-            <span class="signup">SignUp</span>
-        </button>
+      </form>
     </div>
+  </div>
 </template>
+
 
 <script>
 import { useSignupStore } from "@/store/store"
@@ -97,3 +125,48 @@ export default {
     },
 }
 </script>
+
+
+<style scoped>
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.form-group {
+    text-align: center ;
+}
+
+.form-text {
+    padding-left: 50px;
+    text-align: left ;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+</style>

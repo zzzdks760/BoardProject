@@ -1,23 +1,32 @@
 <template>
-    <div>
-        <div id="board_write">
-            <h4>글을 작성하는 공간입니다.</h4>
-            <div id="write_area">
-                <div id="in_title">
-                    <textarea name="title" id="utitle" rows="1" cols="55" placeholder="제목" maxlength="100" required v-model="this.update.detailItems.boardTitle"></textarea>
-                </div>
+	<div class="container">
+		<h1>게시판 등록</h1>
 
-                <div class="wi_line"></div>
-                <div id="in_content">
-                    <textarea name="content" id="ucontent" cols="55" placeholder="내용" required v-model="this.update.detailItems.boardContents"></textarea>
-                </div> 
-                <div class="bt_se">
-                    <button @click="boardupdate">수정</button>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="AddWrap">
+			<form>
+				<table class="tbAdd">
+					<colgroup>
+						<col width="15%" />
+						<col width="85%" />
+					</colgroup>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" class="inputbox" v-model="this.update.detailItems.boardTitle" ref="subject" /></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea class="inputbox" v-model="this.update.detailItems.boardContents" ref="cont"></textarea></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div class="btnWrap">
+			<a href="javascript:;" @click="write" class="btnAdd btn">등록</a>
+		</div>	
+	</div>
 </template>
+
 
 <script>
 import { useSignupStore } from "@/store/store"
@@ -36,3 +45,17 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+	.tbAdd{border-top:1px solid #888;}
+	.tbAdd th, .tbAdd td{border-bottom:1px solid #eee; padding:5px 0;}
+	.tbAdd td{padding:10px 10px; box-sizing:border-box;}
+	.tbAdd td input{width:100%; min-height:30px; box-sizing:border-box; padding:0 10px;}
+	.tbAdd td textarea{width:100%; min-height:300px; padding:10px; box-sizing:border-box;}
+	.btnWrap{text-align:center; margin:20px 0 0 0;}
+	.btnWrap a{margin:0 10px;}
+	.btnAdd {background:#43b984}
+	.btnDelete{background:#f00;}
+    .container{text-align: center}
+    .inputbox{size: 200;}
+</style>

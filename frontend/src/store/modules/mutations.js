@@ -85,6 +85,7 @@ const updates = async (listup) => {
         boardContents: listup.Items[0].boardContents,
     }
     console.log(writingidvalue)
+    console.log(listup)
     await axios
         .post('/board/update', JSON.stringify(writingidvalue))
         .then(res => {
@@ -98,13 +99,14 @@ const updates = async (listup) => {
 }
 
 const listdelete = async (boardid) => {
-    var deletevalu = {
+    var deletevalue = {
         id: boardid.boardreadstate
     }
     await axios
-        .post(`/board/delete/${deletevalu.id}`, JSON.stringify(deletevalu))
+        .post(`/board/delete/${deletevalue.id}`, JSON.stringify(deletevalue))
         .then(res => {
             if(res.data == "ok"){
+                console.log(res)
                 alert("삭제 성공")
             }
             else {
@@ -121,4 +123,38 @@ const boardhit = async (id) => {
         .post(`/board/hit/${boardid.id}`, JSON.stringify(boardid))
 }
 
-export { signup, login, write, emailcheck, updates, listdelete, boardhit}
+const listsearch = async (word) => {
+    var wordvalue = {
+        search: word.listsearch
+    }
+    console.log(wordvalue.search)
+    await axios
+        .post('/board/search', JSON.stringify(wordvalue))
+        .then(res => {
+            console.log(res)
+            if(res !== null) {
+                console.log("1")
+            }
+            else {
+                console.log("1")
+            }
+        })
+}
+
+const comment = async (commentscopy) => {
+    var commentsvalue = {
+        comments: commentscopy.comments
+    }
+    await axios
+        .post('/board/comments', JSON.stringify(commentsvalue))
+        .then(res => {
+            if(res.data == "ok") {
+                alert("댓글이 등록되었습니다.")
+            }
+            else {
+                alert("댓글 등록에 실패하였습니다.")
+            }
+        })
+}
+
+export { signup, login, write, emailcheck, updates, listdelete, boardhit, listsearch, comment}
