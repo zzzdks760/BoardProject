@@ -4,6 +4,8 @@
             <h1>게시판 상세보기</h1>
 
             <div class="AddWrap">
+                <button @click="update" v-if="this.detail.detailstate">수정</button>
+                <button @click="listdelete"  v-if="this.detail.detailstate">삭제</button>
                 <form>
                     <table class="tbAdd">
                         <colgroup>
@@ -23,8 +25,13 @@
                     </table>
                 </form>
             </div>
-            <button @click="update" v-if="this.detail.detailstate">수정</button>
-            <button @click="listdelete"  v-if="this.detail.detailstate">삭제</button>
+            <div>
+                <div>댓글</div>
+            </div>
+            <div>
+                <textarea rows="1" cols="55" placeholder="댓글을 입력해주세요" maxlength="100" required v-model="this.comments"> </textarea>
+                <buttion @click="commentsregistration">등록</buttion>
+            </div>
         </div>
     </div>
 </template>
@@ -35,8 +42,10 @@ import { useSignupStore } from "@/store/store"
 export default {
     setup() {
         const detail = useSignupStore.state
+        const comments = ""
         return {
             detail,
+            comments,
         }
     },
     methods: {
@@ -44,6 +53,7 @@ export default {
             this.detail.pagestate = 5
             localStorage.setItem('detailstate', false)
             this.detail.detailstate = false
+            console.log(this.detail.Items)
         },
         listdelete() {
             localStorage.setItem('detailstate', false)
@@ -51,6 +61,17 @@ export default {
             this.$store.commit("listdelete", this.detail);
             this.detail.pagestate = 0
             window.location.reload(true);
+        },
+        commentsregistration() {
+            if(this.comments === null || this.comments === undefined || this.comments === "")
+            {
+                alert("댓글을 입력해주세요")
+            }
+            else
+            {
+                this.detail.comments = this.comments
+                this.$store.commit("comment", this.detail)
+            }
         },
     },
 }

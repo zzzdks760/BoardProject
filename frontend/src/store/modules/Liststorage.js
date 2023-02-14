@@ -14,11 +14,28 @@ const liststorage = {
                         arr.push(
                             jsonData[i]
                         );
-                        console.log(arr[i])
                     }
                 }
             })
             useSignupStore.state.Items = arr;
+    },
+
+    async fetchcomments() {
+        const arr = []
+
+        await axios
+            .get('/board/commentsList')
+            .then(res => {
+                const jsonData = res.data
+                if(jsonData.length > 0){
+                    for(let i = 0; i < jsonData.length; i++){
+                        arr.push(
+                            jsonData[i]
+                        );
+                    }
+                }
+            })
+            useSignupStore.state.commentsItems = arr;
     }
 }
 
