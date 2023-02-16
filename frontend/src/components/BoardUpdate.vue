@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="btnWrap">
-			<a href="javascript:;" @click="write" class="btnAdd btn">등록</a>
+			<a href="javascript:;" @click="boardupdate" class="btnAdd btn">등록</a>
 		</div>	
 	</div>
 </template>
