@@ -163,8 +163,9 @@ const comment = async (commentscopy) => {
 
 const commentsitems = async (comments) => {
     var id = comments.boardreadstate
+    console.log(id)
     await axios
-        .post('/board/commentsList', JSON.stringify(id))
+        .post(`/board/commentsList/${id}`, JSON.stringify(id))
         .then(res => {
             if(res.data != null) {
                 console.log(res)
