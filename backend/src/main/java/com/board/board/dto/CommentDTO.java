@@ -14,12 +14,14 @@ import java.time.LocalDateTime;
 public class CommentDTO {
     private Long id;
     private String comment;
+    private String memberEmail;
     private Long boardId;
     private LocalDateTime commentCreatedTime;
 
     public static CommentDTO toCommentDTO(CommentEntity commentEntity, Long boardId) {
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setId(commentEntity.getId());
+        commentDTO.setMemberEmail(commentEntity.getMemberEmail());
         commentDTO.setComment(commentEntity.getComment());
         commentDTO.setCommentCreatedTime(commentEntity.getCreatedTime());
         commentDTO.setBoardId(boardId);
