@@ -8,7 +8,7 @@
             <button v-if="pagenumber !== 1">
                 {{pagenumber - 1}}
             </button>
-            <button>
+            <button @click="q">
                 {{pagenumber}}
             </button>
             <button v-if="pagenumber !== pagination.paging.totalElements">
@@ -50,6 +50,9 @@ export default {
         pageingsave() {
             localStorage.setItem('pagenumber', this.pagenumber)
             this.pagenumber = localStorage.getItem('pagenumber')
+        },
+        q() {
+            console.log(this.pagination)
         }
     },
 }

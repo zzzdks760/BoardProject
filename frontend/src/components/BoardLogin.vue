@@ -56,8 +56,9 @@ export default {
         login() {
             this.loginname = this.loginstate.memberItmes.filter(item => {
                 return item.memberEmail === this.loginstate.Email
-            })[0].memberName
-            this.loginstate.Name = this.loginname
+            })[0]
+            console.log(this.loginname)
+            this.loginstate.Name = this.loginname.loginname
             this.$store.commit("login", this.loginstate);
             this.loginstate.pagestate = 0
             this.loginstate.Email = ""

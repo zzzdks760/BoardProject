@@ -13,6 +13,7 @@ const useSignupStore = new Vuex.Store({
         pagingnumber: localStorage.getItem('pagenumber'),
         paging: liststorage.fetchpaging(),
         commentsItems: liststorage.fetchcomments(),
+        spreadcommentsItems: [],
         comments: "",
         listsearch: "",
         loginname: localStorage.getItem('Name'),
@@ -28,9 +29,6 @@ const useSignupStore = new Vuex.Store({
         memberPassword: "",
         memberPasswordConfirm: "",
         memberItmes: storage.fetch(),
-        memberEmails: storage.fetchemail(),
-        fetchpw: storage.fetchpw(),
-        //boardItems: storage.fetch(),
     }),
     getters: getters,
     mutations: mutations,
@@ -38,6 +36,7 @@ const useSignupStore = new Vuex.Store({
 
 const LoginStore = new Vuex.Store({
     state: () =>({
+        Id: "",
         Name: "",
         Email: "",
         Password: "",
