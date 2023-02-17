@@ -77,10 +77,10 @@ export default {
       detail(id) {
         this.pagestate.detailstate = false
         this.listup.boardreadstate = id
-        this.conmments = this.listup.commentsItems.filter(item => {
+        /*this.conmments = this.listup.commentsItems.filter(item => {
           return item.boardid == this.listup.boardreadstate
-        })
-        this.pagestate.spreadcommentsItems = this.conmments
+        })*/
+        //this.pagestate.spreadcommentsItems = this.conmments
         this.detailid = this.listup.Items.filter(item => {
           return item.id == this.listup.boardreadstate
         })[0]

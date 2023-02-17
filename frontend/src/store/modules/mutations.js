@@ -152,6 +152,7 @@ const comment = async (commentscopy) => {
         .post('/board/comments', JSON.stringify(commentsvalue))
         .then(res => {
             if(res.data == "ok") {
+                console.log(res)
                 alert("댓글이 등록되었습니다.")
             }
             else {
