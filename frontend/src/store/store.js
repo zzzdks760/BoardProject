@@ -12,7 +12,7 @@ const useSignupStore = new Vuex.Store({
     state: () =>({
         pagingnumber: localStorage.getItem('pagenumber'),
         paging: liststorage.fetchpaging(),
-        commentsItems: liststorage.fetchcomments(),
+        //commentsItems: liststorage.fetchcomments(),
         spreadcommentsItems: [],
         comments: "",
         listsearch: "",
