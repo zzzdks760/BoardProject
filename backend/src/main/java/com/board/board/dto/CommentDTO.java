@@ -1,14 +1,14 @@
 package com.board.board.dto;
 
 import com.board.board.entity.CommentEntity;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 
 public class CommentDTO {
