@@ -9,5 +9,4 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
     // select * from comment_table where board_id=? order by desc;
     List<CommentEntity> findAllByBoardEntityOrderByIdDesc(BoardEntity boardEntity);
-    List<CommentEntity> findAllByCommentEntity(CommentEntity commentEntity);
 }
