@@ -54,6 +54,7 @@ export default {
             this.loginstate.detailstate = false
             localStorage.removeItem('Name')
             localStorage.removeItem('Email')
+            localStorage.removeItem('Id')
             window.location.reload(true);
         },
         boardpage() {

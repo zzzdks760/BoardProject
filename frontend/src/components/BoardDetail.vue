@@ -34,9 +34,9 @@
                         </tr>
                   </thead>
                   <tbody>
-                  <tr class="listtable" v-for="(list, index) in detail.commentsItems" :key="index">
-                      <td></td>
-                      <td></td>
+                  <tr class="listtable" v-for="(list, index) in detail.spreadcommentsItems" :key="index">
+                      <td>{{list.email}}</td>
+                      <td>{{list.comment}}</td>
                   </tr>
                   </tbody>
                 </div>

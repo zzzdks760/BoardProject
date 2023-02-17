@@ -43,6 +43,7 @@
                       <td>{{ list.boardHits }}</td>
                   </tr>
                   </tbody>
+                  
               </table>
           </div>
       </div>
@@ -59,10 +60,12 @@ export default {
         const listup = useSignupStore.state
         const detailid = ""
         const search = ""
+        const comments = []
         return {
             listup,
             detailid,
             search,
+            comments,
         }
     },
     computed: {
@@ -74,6 +77,10 @@ export default {
       detail(id) {
         this.pagestate.detailstate = false
         this.listup.boardreadstate = id
+        this.conmments = this.listup.commentsItems.filter(item => {
+          return item.boardid == this.listup.boardreadstate
+        })
+        this.pagestate.spreadcommentsItems = this.conmments
         this.detailid = this.listup.Items.filter(item => {
           return item.id == this.listup.boardreadstate
         })[0]
@@ -92,6 +99,7 @@ export default {
         
       },
       q() {
+        console.log(this.pagestate)
         console.log(this.pagestate.paging)
       }
     }

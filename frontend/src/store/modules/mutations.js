@@ -143,9 +143,11 @@ const listsearch = async (word) => {
 
 const comment = async (commentscopy) => {
     var commentsvalue = {
-        Comments: commentscopy.comments,
-        Email: localStorage.getItem('Email')
+        boardid: commentscopy.boardreadstate,
+        comment: commentscopy.comments,
+        email: commentscopy.loginemail
     }
+    console.log(commentsvalue)
     await axios
         .post('/board/comments', JSON.stringify(commentsvalue))
         .then(res => {

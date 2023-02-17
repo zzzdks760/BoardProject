@@ -7,6 +7,7 @@
     <BoardWrite v-if="this.loginstate.pagestate == 3" />
     <BoardDetail v-if="this.loginstate.pagestate == 4" />
     <BoardUpdate v-if="this.loginstate.pagestate == 5" />
+    <BoardPaging />
     <BoardFooter />
   </div>
 </template>
@@ -20,6 +21,7 @@ import BoardList from "./components/BoardList";
 import BoardWrite from "./components/BoardWrite";
 import BoardDetail from "./components/BoardDetail";
 import BoardUpdate from "./components/BoardUpdate"
+import BoardPaging from "./components/BoardPaging"
 import { mapState } from "vuex";
 
 export default {
@@ -38,6 +40,7 @@ export default {
     BoardWrite,
     BoardDetail,
     BoardUpdate,
+    BoardPaging,
   },
 }
 </script>

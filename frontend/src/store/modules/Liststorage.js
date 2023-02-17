@@ -44,7 +44,6 @@ const liststorage = {
             .get('/board/paging')
             .then(res => {
                 const jsonData = res.data
-                console.log(res)
                 useSignupStore.state.paging = jsonData
             })
     }
