@@ -1,7 +1,9 @@
 package com.board.board.controller;
 
 import com.board.board.dto.BoardDTO;
+import com.board.board.dto.CommentDTO;
 import com.board.board.service.BoardService;
+import com.board.board.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +19,7 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
+    private final CommentService commentService;
 
     // 게시글작성
     @PostMapping("board/write")
@@ -48,15 +51,25 @@ public class BoardController {
         return boardService.delete(id);
     }
 
+    // 게시글 조회수
     @PostMapping("board/hit/{id}")
     public String updateHits(@PathVariable Long id) {
         return boardService.updateHits(id);
     }
 
+    // 페이징처리
     // /board/paging?page=1
     @GetMapping("/board/paging")
-    public Page<BoardDTO> paging(@PageableDefault(page = 1)Pageable pageable, Model model) {
+    public Page<BoardDTO> paging(@PageableDefault(page = 1)Pageable pageable, Model model, String searchKeyword) {
 //        pageable.getPageNumber();
+
+        if (searchKeyword == null) {
+            Page<BoardDTO> boardList = boardService.paging(pageable);
+        } else {
+            Page<BoardDTO> boardList = boardService.boardSearchList(searchKeyword, pageable);
+        }
+
+
         Page<BoardDTO> boardList = boardService.paging(pageable);
         int blockLimit = 3;
         int startPage = (((int)(Math.ceil((double)pageable.getPageNumber() / blockLimit))) - 1) * blockLimit + 1; // 1 4 7 10 ~~
@@ -76,5 +89,19 @@ public class BoardController {
         return boardList;
 
     }
+
+    @GetMapping("board/commentsList")
+    public List<CommentDTO> findById(@ModelAttribute Long id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        /* 댓글 목록 가져오기 */
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        model.addAttribute("commentList", commentDTOList);
+        return commentDTOList;
+    }
+
+//    @PostMapping("board/search")
+//    public Page<BoardDTO> boardSearchList(String searchKeyword, Pageable pageable) {
+//        boardService.boardSearchList(searchKeyword);
+//    }
 
 }
