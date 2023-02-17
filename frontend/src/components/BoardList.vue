@@ -43,6 +43,7 @@
                       <td>{{ list.boardHits }}</td>
                   </tr>
                   </tbody>
+                  
               </table>
           </div>
       </div>
@@ -92,6 +93,7 @@ export default {
         
       },
       q() {
+        console.log(this.pagestate)
         console.log(this.pagestate.paging)
       }
     }
