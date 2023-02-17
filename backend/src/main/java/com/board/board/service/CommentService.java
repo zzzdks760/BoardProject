@@ -25,6 +25,7 @@ public class CommentService {
         if (optionalBoardEntity.isPresent()) {
             BoardEntity boardEntity = optionalBoardEntity.get();
             CommentEntity commentEntity = CommentEntity.toSaveEntity(commentDTO, boardEntity);
+            System.out.println("commentDTO = " + commentDTO);
             return commentRepository.save(commentEntity).getId();
         } else {
             return null;
