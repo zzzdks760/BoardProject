@@ -15,6 +15,7 @@ public class CommentEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String memberEmail;
 
     @Column
