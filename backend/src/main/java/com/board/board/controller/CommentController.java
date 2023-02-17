@@ -28,4 +28,8 @@ public class CommentController {
             return null;
         }
     }
+    @PostMapping("board/commentsList")
+    public CommentDTO findById(@RequestBody Long id) {
+        return commentService.findById(id);
+    }
 }

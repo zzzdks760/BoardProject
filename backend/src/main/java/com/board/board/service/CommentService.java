@@ -43,4 +43,16 @@ public class CommentService {
         }
         return commentDTOList;
     }
+
+    public CommentDTO findById(Long id) {
+        Optional<CommentEntity> optionalCommentEntity = commentRepository.findById(id);
+        if (optionalCommentEntity.isPresent()) {
+            CommentEntity commentEntity = optionalCommentEntity.get();
+            CommentDTO commentDTO = CommentDTO.to2CommentDTO(commentEntity);
+            return commentDTO;
+        }
+        else {
+            return null;
+        }
+    }
 }

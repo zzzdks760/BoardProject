@@ -27,4 +27,13 @@ public class CommentDTO {
         commentDTO.setBoardId(boardId);
         return commentDTO;
     }
+
+    public static CommentDTO to2CommentDTO(CommentEntity commentEntity) {
+        CommentDTO commentDTO = new CommentDTO();
+        commentDTO.setId(commentEntity.getId());
+        commentDTO.setMemberEmail(commentEntity.getMemberEmail());
+        commentDTO.setComment(commentEntity.getComment());
+        commentDTO.setCommentCreatedTime(commentEntity.getCreatedTime());
+        return commentDTO;
+    }
 }

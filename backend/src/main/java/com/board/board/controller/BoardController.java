@@ -89,12 +89,12 @@ public class BoardController {
 
     }
 
-    @PostMapping("board/commentsList")
-    public BoardDTO findById(@RequestBody BoardDTO boardDTO, Long id){
-        return boardService.findById(id);
-        /* 댓글 목록 가져오기 */
-//        return commentService.findAll(id);
-    }
+//    @PostMapping("board/commentsList")
+//    public BoardDTO findById(@RequestBody Long id){
+//        return boardService.findById(id);
+//        /* 댓글 목록 가져오기 */
+////        return commentService.findAll(id);
+//    }
 
 //    @PostMapping("board/search")
 //    public Page<BoardDTO> boardSearchList(String searchKeyword, Pageable pageable) {
