@@ -29,7 +29,7 @@ public class CommentController {
         }
     }
     @PostMapping("board/commentsList")
-    public List<CommentDTO> findById(@RequestBody Long id) {
+    public CommentDTO findById(@RequestBody Long id) {
         return commentService.findById(id);
     }
 }

@@ -44,24 +44,15 @@ public class CommentService {
         return commentDTOList;
     }
 
-    public List<CommentDTO> findById(Long id) {
-        CommentEntity commentEntity = commentRepository.findById(id).get();
-        List<CommentEntity> commentEntityList = commentRepository.findAllByCommentEntity(commentEntity);
-        List<CommentDTO> commentDTOList = new ArrayList<>();
-        for (CommentEntity commentEntity1: commentEntityList) {
-            CommentDTO commentDTO = CommentDTO.to2CommentDTO(commentEntity1);
-            commentDTOList.add(commentDTO);
+    public CommentDTO findById(Long id) {
+        Optional<CommentEntity> optionalCommentEntity = commentRepository.findById(id);
+        if (optionalCommentEntity.isPresent()) {
+            CommentEntity commentEntity = optionalCommentEntity.get();
+            CommentDTO commentDTO = CommentDTO.to2CommentDTO(commentEntity);
+            return commentDTO;
         }
-        return commentDTOList;
+        else {
+            return null;
+        }
     }
 }
-
-//    Optional<CommentEntity> optionalCommentEntity = commentRepository.findById(id).get();
-//        if (optionalCommentEntity.isPresent()) {
-//                CommentEntity commentEntity = optionalCommentEntity.get();
-//                CommentDTO commentDTO = CommentDTO.to2CommentDTO(commentEntity);
-//                return commentDTO;
-//                }
-//                else {
-//                return null;
-//                }
