@@ -145,7 +145,7 @@ const comment = async (commentscopy) => {
     var commentsvalue = {
         boardid: commentscopy.boardreadstate,
         comment: commentscopy.comments,
-        email: commentscopy.loginemail
+        memberEmail: commentscopy.loginemail
     }
     console.log(commentsvalue)
     await axios
