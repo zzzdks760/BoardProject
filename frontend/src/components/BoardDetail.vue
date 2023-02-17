@@ -31,12 +31,14 @@
                         <tr>
                             <th scope="col" class="th-name">이름</th>
                             <th scope="col" class="th-date">댓글</th>
+                            <th scope="col" class="th-createtime">작성시간</th>
                         </tr>
                   </thead>
                   <tbody>
                   <tr class="listtable" v-for="(list, index) in detail.spreadcommentsItems" :key="index">
                       <td>{{list.memberEmail}}</td>
                       <td>{{list.comment}}</td>
+                      <td>{{list.commentCreatedTime}}</td>
                   </tr>
                   </tbody>
                 </div>

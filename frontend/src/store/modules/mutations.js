@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {useSignupStore} from "@/store/store";
 //import storage from "@/store/modules/storage";
 
 const signup = async (signup) => {
@@ -147,7 +148,6 @@ const comment = async (commentscopy) => {
         comment: commentscopy.comments,
         memberEmail: commentscopy.loginemail
     }
-    console.log(commentsvalue)
     await axios
         .post('/board/comments', JSON.stringify(commentsvalue))
         .then(res => {
@@ -161,4 +161,16 @@ const comment = async (commentscopy) => {
         })
 }
 
-export { signup, login, write, emailcheck, updates, listdelete, boardhit, listsearch, comment}
+const commentsitems = async (comments) => {
+    var id = comments.boardreadstate
+    await axios
+        .post('/board/commentsList', JSON.stringify(id))
+        .then(res => {
+            if(res.data != null) {
+                console.log(res.data)
+                useSignupStore.spreadcommentsItems = res.data
+            }
+        })
+}
+
+export { signup, login, write, emailcheck, updates, listdelete, boardhit, listsearch, comment, commentsitems}
