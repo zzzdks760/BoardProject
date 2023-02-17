@@ -167,8 +167,8 @@ const commentsitems = async (comments) => {
         .post('/board/commentsList', JSON.stringify(id))
         .then(res => {
             if(res.data != null) {
-                console.log(res.data)
-                useSignupStore.spreadcommentsItems = res.data
+                console.log(res)
+                useSignupStore.state.spreadcommentsItems = res.data
             }
         })
 }

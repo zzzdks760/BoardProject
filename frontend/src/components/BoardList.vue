@@ -91,6 +91,7 @@ export default {
         this.pagestate.detailItems = this.detailid
         this.pagestate.pagestate = 4
         this.pagestate.boardreadstate = id
+        this.$store.commit("commentsitems", this.pagestate)
         this.$store.commit("boardhit", this.pagestate)
       },
       searchbutton() {
