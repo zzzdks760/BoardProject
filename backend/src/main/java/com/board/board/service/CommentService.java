@@ -1,5 +1,6 @@
 package com.board.board.service;
 
+import com.board.board.dto.BoardDTO;
 import com.board.board.dto.CommentDTO;
 import com.board.board.entity.BoardEntity;
 import com.board.board.entity.CommentEntity;
@@ -32,15 +33,15 @@ public class CommentService {
         }
     }
 
-    public List<CommentDTO> findAll(Long boardId) {
-        BoardEntity boardEntity = boardRepository.findById(boardId).get();
-        List<CommentEntity> commentEntityList = commentRepository.findAllByBoardEntityOrderByIdDesc(boardEntity);
-        /* EntityList -> DTOList */
-        List<CommentDTO> commentDTOList = new ArrayList<>();
-        for (CommentEntity commentEntity: commentEntityList) {
-            CommentDTO commentDTO = CommentDTO.toCommentDTO(commentEntity, boardId);
-            commentDTOList.add(commentDTO);
-        }
-        return commentDTOList;
-    }
+//    public String findAll(BoardDTO boardDTO, Long boardId) {
+//        BoardEntity boardEntity = boardRepository.findById(boardId).get();
+//        List<CommentEntity> commentEntityList = commentRepository.findAllByBoardEntityOrderByIdDesc(boardEntity);
+//        /* EntityList -> DTOList */
+//        List<CommentDTO> commentDTOList = new ArrayList<>();
+//        for (CommentEntity commentEntity: commentEntityList) {
+//            CommentDTO commentDTO = CommentDTO.toCommentDTO(commentEntity, boardId);
+//            commentDTOList.add(commentDTO);
+//        }
+//        return commentDTOList;
+//    }
 }

@@ -1,7 +1,6 @@
 package com.board.board.controller;
 
 import com.board.board.dto.BoardDTO;
-import com.board.board.dto.CommentDTO;
 import com.board.board.service.BoardService;
 import com.board.board.service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -90,13 +89,11 @@ public class BoardController {
 
     }
 
-    @GetMapping("board/commentsList")
-    public List<CommentDTO> findById(@ModelAttribute Long id, Model model){
-        BoardDTO boardDTO = boardService.findById(id);
+    @PostMapping("board/commentsList")
+    public BoardDTO findById(@RequestBody BoardDTO boardDTO, Long id){
+        return boardService.findById(id);
         /* 댓글 목록 가져오기 */
-        List<CommentDTO> commentDTOList = commentService.findAll(id);
-        model.addAttribute("commentList", commentDTOList);
-        return commentDTOList;
+//        return commentService.findAll(id);
     }
 
 //    @PostMapping("board/search")
