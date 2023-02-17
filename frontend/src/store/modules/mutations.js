@@ -143,7 +143,7 @@ const listsearch = async (word) => {
 
 const comment = async (commentscopy) => {
     var commentsvalue = {
-        boardid: commentscopy.boardreadstate,
+        boardId: commentscopy.boardreadstate,
         comment: commentscopy.comments,
         memberEmail: commentscopy.loginemail
     }
